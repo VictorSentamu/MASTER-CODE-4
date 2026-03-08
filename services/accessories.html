@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessories - Next Laptops UG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="../css/services.css">
+</head>
+<body>
+
+          <!-- CART & WISHLIST ICONS -->
+            <div class="header-icons-wrapper">
+                <div id="react-wishlist-root"></div>
+                <div id="react-cart-root"></div>
+            </div>
+            
+    <div class="loader" id="loader"><div class="loader-circle"></div></div>
+    
+    <!-- TOP NOTIFICATION -->
+    <div class="top-notification" id="topNotification">
+        <div class="top-notification-content" id="notificationContent"></div>
+    </div>
+    
+    <!-- HEADER -->
+    <header id="header">
+        <div class="header-container">
+            <a href="../index.html" class="logo"><i class="fas fa-laptop"></i> Next Laptops UG</a>
+            
+            <div class="header-nav-group">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#products">Products</a></li>
+                    <li><a href="../index.html#weekly-offers">Weekly Offers</a></li>
+                    <li><a href="../index.html#other-services">Other Services</a></li>
+                </ul>
+            </div>
+
+            
+        </div>
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <a href="../index.html" class="mobile-nav-logo"><i class="fas fa-laptop"></i> Next Laptops UG</a>
+            <button class="mobile-nav-close" id="mobileNavClose"><i class="fas fa-times"></i></button>
+        </div>
+        <ul>
+            <li><a href="../index.html#home">Home</a></li>
+            <li><a href="repairs.html">Repairs</a></li>
+            <li><a href="accessories.html">Accessories</a></li>
+            <li><a href="setup.html">Setup</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="page-content" style="background: var(--light-color);">
+        <div class="container">
+            <div class="page-container" style="background: transparent; box-shadow: none; padding: 0; max-width: 100%;">
+                
+                <div class="service-header">
+                    <div class="service-icon-large"><i class="fas fa-keyboard"></i></div>
+                    <h1 class="page-title" style="display: block; text-align: center; margin-bottom: 10px;">Essential Accessories</h1>
+                    <p style="text-align: center; max-width: 600px; margin: 0 auto;">Find the perfect gear to complement your laptop. Browse categories below.</p>
+                </div>
+
+                <!-- FILTER TABS -->
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="All">All Items</button>
+                    <button class="filter-tab" data-filter="Input">Input (Mice/Keys)</button>
+                    <button class="filter-tab" data-filter="Bags">Bags & Cases</button>
+                    <button class="filter-tab" data-filter="Stands">Stands</button>
+                    <button class="filter-tab" data-filter="Audio">Audio</button>
+                    <button class="filter-tab" data-filter="Power">Power & Cables</button>
+                </div>
+
+                <!-- CAROUSEL CONTAINER -->
+                <div class="swiper acc-swiper">
+                    <div class="swiper-wrapper" id="accessoriesGrid">
+                        <!-- Items injected by JS -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+                <!-- CUSTOM REQUEST SECTION -->
+                <div class="custom-request-section">
+                    <h2>Can't find what you need?</h2>
+                    <p style="margin-bottom: 25px; color: #666;">If you need a specific accessory not listed above, let us know. We might have it in stock or can order it for you.</p>
+                    
+                    <form id="customRequestForm" style="max-width: 500px; margin: 0 auto; text-align: left;">
+                        <div class="form-group">
+                            <input type="text" id="customName" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="customItem" class="form-control" placeholder="Describe the item you need (e.g., 'Dell 65W Charger')" required>
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="submit" class="action-btn action-btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Request Item
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+      <!-- FOOTER -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <!-- About -->
+                <div class="footer-section">
+                    <div class="footer-header"><h3>About Next Laptops UG</h3><i class="fas fa-chevron-down"></i></div>
+                    <div class="footer-links">
+                        <p>We're dedicated to providing quality laptops to university students across Uganda at affordable prices.</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/next_laptopsug"><i class="fab fa-instagram"></i></a>
+                            <a href="https://wa.me/256771368136"><i class="fab fa-whatsapp"></i></a>
+                            <a href="mailto:nextlaptops256@gmail.com"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <div class="footer-header"><h3>Quick Links</h3><i class="fas fa-chevron-down"></i></div>
+                    <div class="footer-links">
+                        <ul>
+                            <li><a href="../index.html#home">Home</a></li>
+                            <li><a href="../index.html#products">Products</a></li>
+                            <li><a href="../index.html#weekly-offers">Weekly Offers</a></li>
+                            <li><a href="../index.html#other-services">Other Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Contact -->
+                <div class="footer-section">
+                    <div class="footer-header"><h3>Contact Information</h3><i class="fas fa-chevron-down"></i></div>
+                    <div class="footer-links">
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</li>
+                            <li><i class="fas fa-phone"></i> <a href="tel:+256771368136">+256 771 368 136</a></li>
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:nextlaptops256@gmail.com">nextlaptops256@gmail.com</a></li>
+                            <li><i class="fas fa-clock"></i> Mon-Fri: 8am-6pm</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Next Laptops UG. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Accessories Quick View Modal -->
+<div class="accessory-modal" id="accessoryQuickViewModal">
+    <div class="accessory-modal-content">
+        <button class="accessory-modal-close" id="accessoryModalClose">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- Image Gallery -->
+        <div class="accessory-gallery">
+            <div class="accessory-gallery-main">
+                <img id="accessoryMainImage" src="" alt="Accessory Image">
+            </div>
+            <div class="accessory-gallery-thumb active" data-index="0">
+                <img id="accessoryThumb1" src="" alt="Thumbnail 1">
+            </div>
+            <div class="accessory-gallery-thumb" data-index="1">
+                <img id="accessoryThumb2" src="" alt="Thumbnail 2">
+            </div>
+            <div class="accessory-gallery-thumb" data-index="2">
+                <img id="accessoryThumb3" src="" alt="Thumbnail 3">
+            </div>
+        </div>
+        
+        <!-- Details -->
+        <div class="accessory-details">
+            <span class="accessory-category-badge" id="accessoryCategory">Category</span>
+            <h2 class="accessory-modal-title" id="accessoryModalTitle">Accessory Name</h2>
+            <div class="accessory-modal-price" id="accessoryModalPrice">UGX 0</div>
+            
+            <div class="accessory-description">
+                <h4>Description</h4>
+                <p id="accessoryDescription">Description goes here...</p>
+            </div>
+            
+            <div class="accessory-features">
+                <h4>Key Features</h4>
+                <ul id="accessoryFeaturesList">
+                    <!-- Features populated by JS -->
+                </ul>
+            </div>
+            
+            <div class="accessory-modal-actions">
+                <button class="btn btn-primary" id="accessoryAddToCartBtn">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+                <button class="btn btn-outline" id="accessoryCloseBtn">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- SCRIPTS -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <!-- Data (Features Variable) -->
+    <script src="../js/data.js"></script>
+
+    <!-- Page Logic -->
+    <script src="../js/services.js"></script>
+    
+    <!-- React Components -->
+    <script type="text/babel" src="../js/cart-wishlist.js"></script>
+
+    <!-- Template JS (Back Button, Menu, Ticker) -->
+    <script src="../js/template.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

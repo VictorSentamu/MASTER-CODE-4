@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Prossy N.",
+        "message": "Received safely. My son loves it for his studies. Professional service, thank you",
+        "rating": 5,
+        "date": "2024-02-14",
+        "title": "Parent"
+    },
+    {
+        "name": "Sarah N.",
+        "message": "Hi, the MacBook is working perfectly. Appreciate the help choosing the right specs for my course",
+        "rating": 5,
+        "date": "2024-01-10",
+        "title": "Computing Student"
+    },
+    {
+        "name": "Peter A.",
+        "message": "HP is solid. Battery could be better but overall good value for the price",
+        "rating": 4,
+        "date": "2024-01-05",
+        "title": "Business Student"
+    },
+    {
+        "name": "Margaret K.",
+        "message": "Laptop arrived on time. My daughter needed it urgently for her online classes. Thank you for the quick delivery",
+        "rating": 5,
+        "date": "2024-01-20",
+        "title": "Parent"
+    },
+    {
+        "name": "David O.",
+        "message": "ThinkPad still going strong after a year. Reliable machine. Would buy from you again",
+        "rating": 5,
+        "date": "2023-12-28",
+        "title": "IT Professional"
+    },
+    {
+        "name": "Faith N.",
+        "message": "Thank you for being patient with all my questions. The Lenovo is perfect for my medical studies",
+        "rating": 5,
+        "date": "2024-01-18",
+        "title": "Medical Student"
+    },
+    {
+        "name": "Robert M.",
+        "message": "Bought a laptop for my son starting university. Good quality and fair price. Will recommend to other parents",
+        "rating": 5,
+        "date": "2024-02-01",
+        "title": "Parent"
+    },
+    {
+        "name": "Brian M.",
+        "message": "Laptop works well for the price. Minor scratch on the back but doesn't affect performance",
+        "rating": 4,
+        "date": "2024-02-08",
+        "title": "IT Student"
+    },
+    {
+        "name": "Moses K.",
+        "message": "MacBook Pro received. Good condition, fair price. Dev environment set up without issues",
+        "rating": 5,
+        "date": "2024-02-10",
+        "title": "Software Developer"
+    }
+]

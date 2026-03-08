@@ -1,0 +1,455 @@
+/* ==========================================
+   SERVICES.CSS
+   Styles specific to Service Pages (Repairs, Accessories, Setup)
+   ========================================== */
+
+/* 1. FORM STYLES (Repairs & Setup) */
+.service-form {
+    max-width: 650px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-family: var(--title-font);
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: #fff;
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+}
+
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* 2. ACTION BUTTON STYLES */
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.action-btn-whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+}
+
+.action-btn-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* 3. PAGE HEADER ICON */
+.service-icon-large {
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 4px solid var(--light-color);
+}
+
+/* ==========================================
+   ACCESSORIES PAGE ADDITIONS
+   ========================================== */
+
+/* 1. FILTER TABS */
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.filter-tab {
+    padding: 10px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    background: white;
+    color: #666;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.filter-tab:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(14, 165, 233, 0.1);
+}
+
+.filter-tab.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* 2. ACCESSORIES GRID & CARDS */
+.accessories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.acc-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.acc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.acc-img-container {
+    height: 200px;
+    background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.acc-img-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.acc-card:hover .acc-img-container::after {
+    left: 100%;
+}
+
+.acc-img-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.acc-card:hover .acc-img-container img {
+    transform: scale(1.08);
+}
+
+.acc-info {
+    padding: 20px;
+    text-align: left;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: white;
+}
+
+.acc-title {
+    font-family: var(--title-font);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.acc-price {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    margin-top: auto;
+}
+
+.acc-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.acc-btn:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+.acc-btn i {
+    font-size: 1rem;
+}
+
+/* 3. SWIPER CAROUSEL STYLES */
+.acc-swiper {
+    padding: 10px 10px 60px;
+    margin: 0 -10px;
+}
+
+.acc-swiper .swiper-wrapper {
+    padding: 10px 0 20px;
+}
+
+.acc-swiper .swiper-slide {
+    height: auto;
+    padding: 0 10px;
+}
+
+.acc-swiper .swiper-pagination {
+    bottom: 10px;
+}
+
+.acc-swiper .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    opacity: 0.3;
+    transition: all 0.3s ease;
+}
+
+.acc-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: var(--accent-color);
+    width: 20px;
+    border-radius: 10px;
+}
+
+.acc-swiper .swiper-pagination-bullet:hover {
+    opacity: 0.8;
+    transform: scale(1.2);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.3);
+}
+
+.swiper-button-next {
+    right: 0;
+}
+
+.swiper-button-prev {
+    left: 0;
+}
+
+/* 4. CUSTOM REQUEST SECTION */
+.custom-request-section {
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-top: 60px;
+    text-align: center;
+}
+
+.custom-request-section h2 {
+    font-family: var(--title-font);
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.custom-request-section p {
+    margin-bottom: 30px;
+    color: #666;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 5. EMPTY STATE */
+.no-items-message {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: var(--border-radius);
+    color: #666;
+    font-size: 1.1rem;
+    grid-column: 1 / -1;
+}
+
+.no-items-message i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+/* 6. RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .filter-tabs {
+        gap: 8px;
+    }
+    
+    .filter-tab {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+    
+    .acc-swiper {
+        padding: 10px 5px 50px;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 14px;
+    }
+    
+    .custom-request-section {
+        padding: 30px 20px;
+    }
+    
+    .custom-request-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Hide arrows on mobile, keep pagination only */
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
+}
+
+/* ==========================================
+   HEADER ICON POSITIONING (Fixed for Modals)
+   ========================================== */
+
+/* 1. Desktop Positioning */
+.header-icons-wrapper {
+    position: fixed; /* Fixed to viewport, not header */
+    top: 53px;       /* Aligns with header height (40px notification + ~13px adjustment) */
+    right: 55px;     /* Distance from right edge */
+    z-index: 10002;  /* Ensures it sits on top */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    pointer-events: none; /* Allows clicks to pass through empty space */
+}
+
+/* Re-enable clicks for the buttons */
+#react-wishlist-root, 
+#react-cart-root {
+    pointer-events: auto;
+}
+
+/* 2. Mobile Positioning */
+@media (max-width: 992px) {
+    .header-icons-wrapper {
+        top: 10px;      /* Adjust for mobile header */
+        right: 60px;    /* Move left/right as needed */
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-icons-wrapper {
+        right: 50px;    /* Tighter fit for small screens */
+        gap: 10px;
+    }
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+.acc-card.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}
+

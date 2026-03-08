@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Laptops UG - Quality Laptops for Your Study Journey</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Next Laptops UG offers quality laptops for university students in Uganda. Find perfect laptop for your course with our personalized recommendations.">
+    <meta name="keywords" content="laptops Uganda, student laptops, university laptops, Dell, HP, MacBook, Next Laptops UG, Kampala">
+    <meta name="author" content="Next Laptops UG">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Next Laptops UG - Quality Laptops for Your Study Journey">
+    <meta property="og:description" content="Find perfect laptop for your university course in Uganda. Personalized recommendations and weekly offers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nextlaptopsug.com">
+    <meta property="og:image" content="https://picsum.photos/seed/next-laptops-og/1200x630.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Next Laptops UG - Quality Laptops for Your Study Journey">
+    <meta name="twitter:description" content="Find perfect laptop for your university course in Uganda. Personalized recommendations and weekly offers.">
+    <meta name="twitter:image" content="https://picsum.photos/seed/next-laptops-twitter/1200x630.jpg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   
+    <!-- Add Swiper CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Add these BEFORE your closing tag -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<!-- 1. Manifest (Android/Chrome) -->
+<link rel="manifest" href="manifest.json">
+
+<!-- 2. iOS Meta Tags (iPhone Safari) -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Next-Laptops">
+
+<!-- 3. Theme Color (Chrome Address Bar) -->
+<meta name="theme-color" content="#1a1a2e">
+    
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Next UG" />
+
+    <!-- Your External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+   
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Notification Bar - NON STICKY (Target Style) -->
+    <div class="top-notification" id="topNotification">
+        <div class="top-notification-content" id="notificationContent">
+            <!-- Notification items will be dynamically loaded here -->
+        </div>
+    </div>
+
+        <!-- Loader -->
+    <div class="loader" id="loader" role="alert" aria-busy="true">
+        <div class="loader-circle" aria-hidden="true"></div>
+    </div>
+
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- NEW HEADER STRUCTURE (Target Style) -->
+    <header id="header">
+        <!-- Row 1: Main Actions -->
+        <div class="header-main-row">
+            <!-- 1. LOGO (Far Left) -->
+            <a href="#home" class="logo" tabindex="0">
+                <i class="fas fa-laptop" aria-hidden="true"></i>
+                Next Laptops UG
+            </a>
+
+            <!-- 2. DESKTOP SEARCH BAR (Center) -->
+            <div class="header-search-desktop">
+                <div class="search-box">
+                    <div class="search-input-wrapper">
+                        <input type="text" class="search-input" id="globalSearchInput" placeholder="What can we help you find?" autocomplete="off">
+                        <button class="search-btn" id="globalSearchBtn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <!-- Results Dropdown -->
+                    <div class="search-results" id="searchResults">
+                        <!-- Results populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. RIGHT ACTIONS (Quick Links + Icons) -->
+            <div class="header-actions">
+                
+                <!-- DESKTOP ONLY: Quick Links Dropdown -->
+                <div class="quick-links-wrapper" id="quickLinksWrapper">
+                    <button class="quick-links-toggle" id="quickLinksToggle">
+                        Quick Links <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="quick-links-dropdown" id="quickLinksDropdown">
+                        <a href="#home">Home</a>
+                        <a href="#products">Products</a>
+                        <a href="#weekly-offers">Weekly Offers</a>
+                        <a href="#other-services">Other Services</a>
+                        <a href="#social-proof">Social Proof</a>
+                        <a href="#blog">Blog</a>
+                    </div>
+                </div>
+
+                <!-- MOBILE & DESKTOP: Icons Container -->
+                <div class="header-icons-wrapper" id="headerIconsWrapper">
+                    <div id="react-wishlist-root"></div>
+                    <div id="react-cart-root"></div>
+                </div>
+
+                <!-- MOBILE ONLY: Menu Toggle -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Row 2: MOBILE ONLY SEARCH BAR -->
+        <div class="header-search-mobile">
+            <div class="search-box">
+                <div class="search-input-wrapper">
+                    <input type="text" class="search-input" id="globalSearchInputMobile" placeholder="Search laptops, accessories..." autocomplete="off">
+                    <button class="search-btn" id="globalSearchBtnMobile">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <!-- Results Dropdown for Mobile -->
+                <div class="search-results" id="searchResultsMobile">
+                    <!-- Results populated by JS -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation - PlayStation Style -->
+    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <a href="#home" class="mobile-nav-logo" tabindex="0">
+                <i class="fas fa-laptop" aria-hidden="true"></i>
+                Next Laptops UG
+            </a>
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <ul>
+            <li><a href="#home" tabindex="0">Home</a></li>
+            <li><a href="#products" tabindex="0">Products</a></li>
+            <li><a href="#weekly-offers" tabindex="0">Weekly Offers</a></li>
+            <li><a href="#other-services" tabindex="0">Other Services</a></li>
+            <li><a href="#social-proof" tabindex="0">Social Proof</a></li>
+            <li><a href="#blog" tabindex="0">Blog</a></li>
+            <li><a href="#contact" tabindex="0">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- PlayStation-Inspired Hero Section - Modified to match incase.com -->
+    <section class="hero" id="home" aria-label="Hero section">
+        <div class="hero-background">
+            <!-- Removed background images, keeping gradient background -->
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container hero-container">
+                <div class="rotating-headline">
+                    <h1 class="headline-text active">Find perfect laptop for your course</h1>
+                    <p class="headline-subtext active">Browse our collection of quality laptops for university students in Uganda.</p>
+                    <div class="btn-group">
+                        <a href="#products" class="btn btn-primary" tabindex="0">Browse Products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-indicators" role="tablist">
+            <button class="hero-indicator active" aria-label="Go to slide 1" role="tab" aria-selected="true"></button>
+            <button class="hero-indicator" aria-label="Go to slide 2" role="tab" aria-selected="false"></button>
+            <button class="hero-indicator" aria-label="Go to slide 3" role="tab" aria-selected="false"></button>
+            <button class="hero-indicator" aria-label="Go to slide 4" role="tab" aria-selected="false"></button>
+            <button class="hero-indicator" aria-label="Go to slide 5" role="tab" aria-selected="false"></button>
+        </div>
+        <!-- Scroll Indicator - Hidden as requested -->
+        <div class="scroll-indicator" aria-hidden="true" style="display: none;">
+            <i class="fas fa-chevron-down scroll-arrow"></i>
+            <span class="scroll-text">Scroll</span>
+        </div>
+    </section>
+
+    <!-- PlayStation-Inspired Previews Section - Now Features Ticker -->
+    <section class="hero-previews" id="features" aria-label="Features section">
+        <div class="container">
+            <div class="ticker-container">
+                <div class="ticker-track" id="tickerTrack">
+                    <!-- Ticker items will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Laptop Finder Section -->
+<section class="laptop-finder" id="finder" aria-label="Laptop finder section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Find Your Perfect Laptop</h2>
+            <p>Answer a few questions about your course and preferences, and we'll match you with the perfect laptop for your university journey.</p>
+        </div>
+        <div class="finder-form">
+            <form id="laptopFinderForm" aria-label="Laptop finder form">
+                <div class="form-group">
+                    <label for="course">Course/Faculty</label>
+                    <select class="form-control" id="course" required aria-required="true">
+                        <option value="" disabled selected>Select your field of study</option>
+                        <option value="engineering">Engineering & Technology</option>
+                        <option value="medicine">Medicine & Healthcare</option>
+                        <option value="computing">Computer Science & IT</option>
+                        <option value="business">Business & Management</option>
+                        <option value="arts">Arts & Humanities</option>
+                        <option value="sciences">Natural Sciences</option>
+                        <option value="agriculture">Agriculture & Environmental</option>
+                        <option value="education">Education & Teaching</option>
+                        <option value="law">Law & Legal Studies</option>
+                        <option value="social">Social Sciences</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Select Your Budget (UGX)</label>
+                    <div class="budget-dropdown">
+                        <select class="budget-select" id="budget" required aria-required="true">
+                            <option value="" disabled selected>Select your budget range</option>
+                            <option value="500000-1000000">500,000 - 1,000,000 UGX</option>
+                            <option value="1000000-1500000">1,000,000 - 1,500,000 UGX</option>
+                            <option value="1500000-2000000">1,500,000 - 2,000,000 UGX</option>
+                            <option value="2000000-3500000">2,000,000 - 3,500,000 UGX</option>
+                            <option value="3500000-5000000">3,500,000 - 5,000,000 UGX</option>
+                            <option value="5000000+">5,000,000+ UGX</option>
+                        </select>
+                        <div class="budget-display" id="budgetDisplay" aria-live="polite"></div>
+                    </div>
+                </div>
+                <!-- Add this block inside the form -->
+                <div class="form-group">
+                    <label for="condition">Select Preferred Condition</label>
+                      <select class="form-control" id="condition" required aria-required="true">
+                        <option value="" disabled selected>Select condition preference</option>
+                        <option value="new">Brand New</option>
+                        <option value="refurbished">Refurbished</option>
+                        <option value="used">Used</option>
+                        <option value="any">Any Condition</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label>Primary Use</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="radio" id="study" name="primaryUse" value="study" checked>
+                            <label for="study">📚 Academic Work & Research</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="programming" name="primaryUse" value="programming">
+                            <label for="programming">💻 Programming & Development</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="design" name="primaryUse" value="design">
+                            <label for="design">🎨 Design & Creative Work</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="gaming" name="primaryUse" value="gaming">
+                            <label for="gaming">🎮 Gaming & Entertainment</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Find My Match</button>
+            </form>
+            
+            <!-- Analysis Loading State -->
+            <div class="analysis-loading" id="analysisLoading">
+                <div class="analysis-loading-spinner"></div>
+                <div class="analysis-loading-text typing-animation">🔍 Analyzing your needs…</div>
+            </div>
+            
+            <!-- Analysis Results -->
+            <div class="analysis-results" id="analysisResults">
+                <p class="analysis-results-text">Based on your course and budget, these laptops are your best matches.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Results Section (Hidden by default, shown after finder form submission) -->
+<section class="finder-results" id="finderResults" aria-label="Laptop finder results" style="display: none;">
+    <div class="container">
+        <div class="section-title">
+            <h2>Your Recommended Laptops</h2>
+            <p>✨ Based on your requirements, we've found these perfect matches for you.</p>
+        </div>
+        
+        <div class="results-container" id="resultsContainer">
+            <!-- Results will be dynamically loaded here -->
+        </div>
+        
+        <div class="results-actions">
+            <button class="btn btn-outline" id="viewAllResults">View All Products</button>
+            <button class="btn btn-primary" id="resetFinder">Start Over</button>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Products Section -->
+<section class="products" id="products" aria-label="Products section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Laptop Collection</h2>
+            <p>High-quality laptops carefully selected for university students</p>
+        </div>
+        
+        <div class="product-carousel-container" role="region" aria-label="Product carousel">
+            <div class="product-carousel-viewport">
+                <div class="product-carousel-track" id="productTrack" role="list">
+                    <!-- Products will be dynamically loaded here -->
+                </div>
+            </div>
+            
+            <!-- Navigation controls at the bottom -->
+            <div class="product-carousel-controls">
+                <!-- Pagination dots on the left -->
+                <div class="product-carousel-pagination" id="productPagination" role="tablist">
+                    <!-- Dots will be dynamically loaded here -->
+                </div>
+                
+                <!-- Navigation arrows on the right -->
+                <div class="product-carousel-arrows">
+                    <button class="product-carousel-arrow prev" id="productPrevBtn" aria-label="Previous products" tabindex="0">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <button class="product-carousel-arrow next" id="productNextBtn" aria-label="Next products" tabindex="0">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Reassurance Section -->
+<section class="reassurance" aria-label="Reassurance section">
+    <div class="container">
+        <div class="reassurance-grid">
+            <div class="reassurance-item">
+                <div class="reassurance-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3 class="reassurance-title">Fast & Free Delivery</h3>
+                <p class="reassurance-desc">Same-day or next-day delivery to wherever you're located</p>
+            </div>
+            <div class="reassurance-item">
+                <div class="reassurance-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="reassurance-title">In Store Pick-Up</h3>
+                <p class="reassurance-desc">Come Inspect and confirm before payment</p>
+            </div>
+            <div class="reassurance-item">
+                <div class="reassurance-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="reassurance-title">Warranty & Support</h3>
+                <p class="reassurance-desc">Tested laptops with supplier warranty</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Weekly Offers Section - Now moved to below products -->
+    <section class="weekly-offers" id="weekly-offers" aria-label="Weekly offers section">
+        <div class="container">
+            <div class="offers-header">
+                <h2>🔥 Weekly Offers</h2>
+                <p>Don't miss out on amazing deals and discounts on selected laptops. Limited time offers available now!</p>
+            </div>
+            <div class="offers-container" id="weeklyOffersSlider">
+                <!-- Weekly offers will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Other Services Section -->
+<section class="other-products-services" id="other-services">
+    <div class="container">
+        <div class="section-title">
+            <h2>Other Services</h2>
+            <p>Complete your tech experience with our additional services and products</p>
+        </div>
+        
+        <!-- CAROUSEL CONTAINER -->
+        <div class="services-carousel-container">
+            <!-- CAROUSEL TRACK (holds all cards) -->
+            <div class="services-grid" id="servicesTrack">
+                <!-- Card 1: Repairs - NOW OFFERING -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="service-title">Laptop Repairs</h3>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Screen replacement</li>
+                        <li><i class="fas fa-check"></i> Battery replacement</li>
+                        <li><i class="fas fa-check"></i> Keyboard repair</li>
+                        <li><i class="fas fa-check"></i> Most repairs in 24-48hrs</li>
+                    </ul>
+                   <a href="services/repairs.html" class="service-cta">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                                
+                <!-- Card 2: Accessories - NOW OFFERING -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3 class="service-title">Essential Accessories</h3>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Laptop bags & sleeves</li>
+                        <li><i class="fas fa-check"></i> Wireless mice/keyboards</li>
+                        <li><i class="fas fa-check"></i> Laptop stands & cooling pads</li>
+                        <li><i class="fas fa-check"></i> Power banks & adapters</li>
+                    </ul>
+                    <a href="services/accessories.html" class="service-cta">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Card 3: Setup & Installation - NOW OFFERING -->
+                <!-- Card 3: Setup & Installation - REVISED WITH BENEFIT FOCUS -->
+<div class="service-card">
+    <div class="service-icon">
+        <i class="fas fa-magic"></i> <!-- Changed icon to better represent "ready to go" feeling -->
+    </div>
+    <h3 class="service-title">Setup & Installation</h3>
+    <ul class="service-list">
+        <li><i class="fas fa-check"></i>Unbox & Ready to Go</li>
+        <li><i class="fas fa-check"></i>Student Software Install</li>
+        <li><i class="fas fa-check"></i>Hassle-Free Data Transfer</li>
+        <li><i class="fas fa-check"></i>Security & Updates</li>
+    </ul>
+    <a href="services/setup.html" class="service-cta">View Details <i class="fas fa-arrow-right"></i></a>
+</div>
+                
+               <!-- Card 4: Monitors - OFFERING SOON -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="service-title">External Monitors</h3>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> 24" Full HD Displays</li>
+                        <li><i class="fas fa-check"></i> Gaming monitors 144Hz</li>
+                        <li><i class="fas fa-check"></i> USB-C docking monitors</li>
+                        <li><i class="fas fa-check"></i> Dual monitor setups</li>
+                    </ul>
+                    <a href="#notify-monitors" 
+                        class="service-cta offering-soon" onclick="showNotification('External Monitors')">
+                        Coming Soon
+                        <i class="fas fa-clock"></i>
+                    </a>
+                </div>
+                
+               <!-- Card 5: Wholesale/Bulk - OFFERING SOON -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h3 class="service-title">Wholesale & Bulk</h3>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> School/Office setups</li>
+                        <li><i class="fas fa-check"></i> Bulk laptop orders</li>
+                        <li><i class="fas fa-check"></i> Corporate discounts</li>
+                        <li><i class="fas fa-check"></i> Custom configurations</li>
+                    </ul>
+                    <a href="#notify-wholesale" 
+                        class="service-cta offering-soon" onclick="showNotification('Wholesale & Bulk')">
+                        Coming Soon
+                        <i class="fas fa-clock"></i>
+                    </a>
+                </div>
+
+                <!-- Card 6: Trade-In - OFFERING SOON -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="service-title">Laptop Trade-In</h3>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Get value for old laptop</li>
+                        <li><i class="fas fa-check"></i> Upgrade to newer model</li>
+                        <li><i class="fas fa-check"></i> Instant valuation</li>
+                        <li><i class="fas fa-check"></i> Free pickup service</li>
+                    </ul>
+                    <a href="#notify-tradein" 
+                        class="service-cta offering-soon" onclick="showNotification('Laptop Trade-In')">
+                        Coming Soon
+                        <i class="fas fa-clock"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Pagination and Navigation Container -->
+            <div class="services-carousel-controls">
+                <div class="services-pagination" id="servicesPagination"></div>
+                <div class="services-navigation">
+                    <button class="services-arrow prev" id="servicesPrev" aria-label="Previous">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="services-arrow next" id="servicesNext" aria-label="Next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Social Proof Section - Dynamic Testimonials -->
+    <section class="social-proof" id="social-proof" aria-label="Customer testimonials">
+        <div class="container">
+            <div class="social-proof-header">
+                <h2>What Our Clients Say</h2>
+                <p>See what Ugandan university students are saying about their laptops from Next Laptops UG</p>
+                <!-- Source filter tabs -->
+                <div class="testimonial-source-tabs" role="tablist" aria-label="Filter testimonials by source">
+                    <button class="source-tab active" data-source="all" role="tab" aria-selected="true">
+                        <i class="fas fa-globe"></i> All Reviews
+                    </button>
+                    <button class="source-tab" data-source="google" role="tab" aria-selected="false">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button class="source-tab" data-source="whatsapp" role="tab" aria-selected="false">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Loading state -->
+            <div class="testimonials-loading" id="testimonials-loading" aria-live="polite">
+                <div class="loading-spinner"></div>
+                <p>Loading testimonials...</p>
+            </div>
+            
+            <!-- Error state -->
+            <div class="testimonials-error" id="testimonials-error" style="display: none;" aria-live="assertive">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>Unable to load testimonials. Showing cached reviews.</p>
+            </div>
+            
+            <!-- Dynamic testimonials container -->
+            <div class="social-proof-container" id="testimonials-container" role="region" aria-label="Customer reviews">
+                <!-- Testimonials will be dynamically inserted here -->
+            </div>
+            
+            <!-- Pagination/Load more -->
+            <div class="testimonials-pagination" id="testimonials-pagination" style="display: none;">
+                <button class="load-more-btn" id="load-more-testimonials" aria-label="Load more testimonials">
+                    <span>Load More Reviews</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+<section class="blog-section" id="blog" aria-label="Blog section">
+    <div class="blog-container">
+        <div class="blog-header">
+            <h2>Featured Blogs and Updates</h2>
+            <p>Stay updated with the latest tech news, laptop reviews, and study tips for Ugandan university students.</p>
+        </div>
+        
+        <div class="blog-swiper-container">
+            <div class="swiper blogSwiper">
+                <div class="swiper-wrapper" id="blogTrack">
+                    <!-- Blog posts will be dynamically loaded here -->
+                </div>
+                
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+                
+                <!-- Navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="recently-viewed-section" style="padding: 40px 0; background: #FEFDF8;">
+    <div class="container">
+        <div id="recentlyViewedContainer"></div>
+    </div>
+</section>
+
+ <!-- CTA Section -->
+<section class="cta" aria-label="Call to action section">
+    <div class="container">
+        <h2>Ready to Find Your Perfect Laptop?</h2>
+        <p>Join thousands of Ugandan university students who have found their ideal laptop with us</p>
+        <div class="cta-buttons">
+            <a href="#products" class="btn btn-primary" tabindex="0">Browse Our Collection</a>
+            <a href="https://www.instagram.com/next_laptopsug?igshid=MXRvdHZheHpxcjMzdg%3D%3D&utm_source=qr" class="btn btn-instagram" target="_blank" tabindex="0">
+                <i class="fab fa-instagram"></i> Follow Us
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer Section -->
+    <!-- First, let's update the footer HTML structure -->
+<footer id="contact" aria-label="Footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- Main footer sections - these will be horizontal on desktop -->
+            <div class="footer-section" id="aboutSection">
+    <div class="footer-header">
+        <h3>About Next Laptops UG</h3>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+    </div>
+    <div class="footer-links">
+        <p>We're dedicated to providing quality laptops to university students across Uganda at affordable prices. Our mission is to ensure every student has the right technology to succeed in their academic journey.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/next_laptopsug?igshid=MXRvdHZheHpxcjMzdg%3D%3D&utm_source=qr" aria-label="Instagram" tabindex="0" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://wa.me/256771368136" aria-label="WhatsApp" tabindex="0" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="mailto:nextlaptops256@gmail.com" aria-label="Email" tabindex="0"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+        </div>
+    </div>
+</div>            
+           <!-- Find this section in your <footer> -->
+<div class="footer-section" id="quickLinksSection">
+    <div class="footer-header">
+        <h3>Quick Links</h3>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+    </div>
+    <div class="footer-links">
+        <ul>
+            <li><a href="#home" tabindex="0">Home</a></li>
+            <li><a href="#products" tabindex="0">Products</a></li>
+            <li><a href="#weekly-offers" tabindex="0">Weekly Offers</a></li>
+            <li><a href="#other-services" tabindex="0">Other Services</a></li>
+            <li><a href="#social-proof" tabindex="0">Social Proof</a></li>
+            <li><a href="#blog" tabindex="0">Blog</a></li>
+        </ul>
+    </div>
+</div>
+            <div class="footer-section" id="contactSection">
+                <div class="footer-header">
+                    <h3>Contact Information</h3>
+                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Kampala, Uganda</li>
+                        <li><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+256771368136">+256 771 368 136</a></li>
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:nextlaptops256@gmail.com">nextlaptops256@gmail.com</a></li>
+                        <li><i class="fas fa-clock" aria-hidden="true"></i> Mon-Fri: 8am-6pm, Sat: 9am-4pm</li>
+                    </ul>
+                </div>
+            </div>
+            
+           <div class="footer-section" id="legalSection">
+    <div class="footer-header">
+        <h3>Legal</h3>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+    </div>
+    <div class="footer-links">
+        <ul>
+            <li><a href="legal/terms.html" tabindex="0">Terms of Service</a></li>
+            <li><a href="legal/privacy.html" tabindex="0">Privacy Policy</a></li>
+            <li><a href="legal/returns.html" tabindex="0">Returns Policy</a></li>
+        </ul>
+    </div>
+</div>
+        
+        <!-- Currency section - separate from main footer content -->
+        <div class="footer-currency-section">
+            <div class="currency-selector">
+                <div class="current-currency">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <span id="currentCurrencyLabel">UGX</span>
+                    <i class="fas fa-chevron-down currency-arrow" aria-hidden="true"></i>
+                </div>
+                <div class="currency-dropdown" id="currencyDropdown">
+                    <div class="currency-option" data-currency="UGX" data-symbol="UGX">
+                        <span class="currency-flag">🇺🇬</span>
+                        <span class="currency-name">UGX</span>
+                    </div>
+                    <div class="currency-option" data-currency="USD" data-symbol="$">
+                        <span class="currency-flag">🇺🇸</span>
+                        <span class="currency-name">USD</span>
+                    </div>
+                    <div class="currency-option" data-currency="GBP" data-symbol="£">
+                        <span class="currency-flag">🇬🇧</span>
+                        <span class="currency-name">GBP</span>
+                    </div>
+                    <div class="currency-option" data-currency="EUR" data-symbol="€">
+                        <span class="currency-flag">🇪🇺</span>
+                        <span class="currency-name">EUR</span>
+                    </div>
+                    <div class="currency-option" data-currency="KSH" data-symbol="KSH">
+                        <span class="currency-flag">🇰🇪</span>
+                        <span class="currency-name">KSH</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 Next Laptops UG. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Currency notification -->
+<div class="currency-notification" id="currencyNotification">
+    Currency changed to <span id="currencyChangedText">UGX</span>
+</div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="quickViewModal" aria-modal="true" role="dialog" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <div class="modal-image-gallery">
+                    <div class="modal-gallery-track" id="modalGalleryTrack">
+                        <!-- Gallery slides will be dynamically loaded here -->
+                    </div>
+                    <button class="modal-gallery-nav prev" id="modalGalleryPrev" aria-label="Previous image">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="modal-gallery-nav next" id="modalGalleryNext" aria-label="Next image">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                <div class="modal-gallery-indicators" id="modalGalleryIndicators">
+                    <!-- Indicators will be dynamically loaded here -->
+                </div>
+                <div class="modal-condition-tag" id="modalConditionTag">New</div>
+            </div>
+            <div class="modal-details">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-price">
+                  <span class="modal-current-price" id="modalCurrentPrice"></span>
+                </div>
+              <div class="modal-tagline-section">
+                <div class="modal-tagline-label">Why this laptop is perfect for you:</div>
+                <div class="modal-tagline-text">
+                      <!-- Tagline content will be set by JavaScript -->
+                </div>
+              </div>
+
+                <div class="modal-specs">
+                    <h3>Specifications</h3>
+                    <div class="modal-specs-list" id="modalSpecsList"></div>
+                </div>
+                <div class="compare-toggle">
+                    <input type="checkbox" id="compareCheckbox">
+                    <label for="compareCheckbox">
+                        <i class="fas fa-balance-scale"></i>
+                        Add to Compare
+                    </label>
+                </div>
+                <div class="modal-actions">
+                    <a href="#" class="btn btn-primary" id="modalWhatsAppBtn" target="_blank">💬 Get Quote</a>
+                    <button class="btn btn-outline" id="modalCloseBtn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div class="comparison-modal" id="comparisonModal" aria-modal="true" role="dialog" aria-labelledby="comparisonTitle">
+        <div class="comparison-content">
+            <div class="comparison-header">
+                <h2 class="comparison-title" id="comparisonTitle">Laptop Comparison</h2>
+                <button class="comparison-close" id="comparisonClose" aria-label="Close comparison">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="comparison-body" id="comparisonBody">
+                <!-- Comparison content will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Compare Button -->
+    <button class="compare-button" id="compareButton">
+        <i class="fas fa-balance-scale"></i>
+        Compare Now
+        <span id="compareCount">0</span>
+    </button>
+    
+<!-- Header Icons Wrapper (Fixed) -->
+<div class="header-icons-wrapper">
+    <div id="react-wishlist-root"></div>
+    <div id="react-cart-root"></div>
+</div>
+
+    <!-- SCRIPTS -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <!-- 1. DATA FILE (Load this first) -->
+    <script src="js/data.js"></script>
+    
+    <!-- 2. MAIN LOGIC FILE -->
+    <script src="js/app.js"></script>
+    
+    <!-- 3. REACT COMPONENTS (Load last as it relies on Babel & previous scripts) -->
+    <script type="text/babel" src="js/cart-wishlist.js"></script>
+
+    <!-- Service Worker -->
+    <script>
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", () => {
+            navigator.serviceWorker.register("./sw.js").then((registration) => {
+              console.log("✅ Service Worker Registered", registration);
+            }).catch((error) => {
+              console.log("❌ SW Registration Failed", error);
+            });
+          });
+        }
+    </script>
+
+</body>
+</html>

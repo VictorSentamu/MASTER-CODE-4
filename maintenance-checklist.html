@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Laptops - Weekly Maintenance Checklist</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .checklist-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+        h1 i {
+            color: #0ea5e9;
+            margin-right: 10px;
+        }
+        .week-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .date-range {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        .progress {
+            background: #e0e0e0;
+            border-radius: 20px;
+            height: 10px;
+            width: 200px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            background: #10b981;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        .day-section {
+            margin: 30px 0;
+            border-left: 4px solid #0ea5e9;
+            padding-left: 20px;
+        }
+        .day-section h2 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .day-section h2 span {
+            color: #666;
+            font-size: 14px;
+            font-weight: normal;
+            margin-left: 10px;
+        }
+        .task-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+        .task-item:hover {
+            background: #e9ecef;
+        }
+        .task-item.completed {
+            opacity: 0.7;
+            background: #d4edda;
+        }
+        .task-checkbox {
+            margin-right: 15px;
+        }
+        .task-checkbox input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .task-content {
+            flex: 1;
+        }
+        .task-title {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        .task-time {
+            font-size: 12px;
+            color: #666;
+        }
+        .task-notes {
+            font-size: 12px;
+            color: #0ea5e9;
+            margin-left: 10px;
+        }
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+        }
+        .notes-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .notes-section textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-family: inherit;
+            resize: vertical;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        .btn-primary {
+            background: #0ea5e9;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #0284c7;
+        }
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+        .btn-success:hover {
+            background: #059669;
+        }
+        .btn-outline {
+            background: white;
+            border: 2px solid #1a1a2e;
+            color: #1a1a2e;
+        }
+        .btn-outline:hover {
+            background: #1a1a2e;
+            color: white;
+        }
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #1a1a2e;
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .print-btn:hover {
+            background: #0ea5e9;
+            transform: scale(1.1);
+        }
+        @media print {
+            .print-btn, .button-group {
+                display: none;
+            }
+            body {
+                background: white;
+                padding: 0;
+            }
+            .checklist-container {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="checklist-container" id="checklist">
+        <h1><i class="fas fa-clipboard-check"></i> Weekly Maintenance Checklist</h1>
+        <p style="color: #666; margin-bottom: 30px;">Complete these tasks every week to keep your website fresh and engaging.</p>
+        
+        <div class="week-info">
+            <div class="date-range" id="weekRange"></div>
+            <div class="progress">
+                <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+            </div>
+        </div>
+        
+        <div class="quick-stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalTasks">18</div>
+                <div class="stat-label">Total Tasks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completedTasks">0</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalTime">60</div>
+                <div class="stat-label">Minutes/Week</div>
+            </div>
+        </div>
+        
+        <!-- Monday Section -->
+        <div class="day-section">
+            <h2>📅 Monday <span>(30 minutes)</span></h2>
+            
+            <div class="task-item" id="task-m1">
+                <div class="task-checkbox">
+                    <input type="checkbox" onchange="updateProgress()">
+                </div>
+                <div class="task-content">
+                    <div class="task-title">🔄 Update Weekly Offers</div>
+                    <div class="task-time">⏱️ 5 minutes</div>
+                </div>
+                <div class="task-notes">Change prices, update countdowns, remove expired offers</div>
+            </div>
+            
+            <div class="task-item" id="task-m2">
+                <div class="task-checkbox">
+                    <input type="checkbox" onchange="updateProgress()">
+                </div>
+                <div class="task-content">
+                    <div class="task-title">💬 Check WhatsApp for New Testimonials</div>
+                    <div class="task-time">⏱️ 10 minutes</div>
+                </div>
+                <div class="task-notes">Save screenshots, copy messages to testimonials file</div>
+            </div>
+            
+            <div class="task-item" id="task-m3">
+                <div class="task-checkbox">
+                    <input type="checkbox" onchange="updateProgress()">
+                </div>
+                <div class="task-content">
+                    <div class="task-title">📦 Update Product Availability</div>
+                    <div class="task-time">⏱️ 5 minutes</div>
+                </div>
+                <div class="task-notes">Mark sold out items, add new arrivals</div>
+            </div>
+            
+            <div class="task-item" id="task-m4">
+                <div class="task-checkbox">
+                    <input type="checkbox" onchange="updateProgress()">
+                </div>
+                <div class="task-content">
+                    <div class="task-title">✍️ Write Short Blog Post</div>
+                    <div class="task-time">⏱️ 10 minutes</div>
+                </div>
+                <div class="task-notes">Topic ideas: laptop tips, student guides, new arrivals</div>
+            </div>
+        </div>
+        
+        <!-- Wednesday Section -->
+        <div class="day-section">
+            <h2>📅 Wednesday <span>(15 minutes)</span></h2>
+            
+            <div class="task-item" id="task-w1">
+                <div class="task-checkbox">
+                    <input type="checkbox" onchange="updateProgress()">
+                </div>
+                <div class="task-content">
+                    <div class="task-title">⭐ Add 2-3 New Testimonials</div>
+                    <div class="task-time">⏱️ 10 minutes</div>
+                </div>
+                <div class="task-notes">Copy from WhatsApp, Google Reviews, or in-person feedback</div>
+            </div>
+            
+            <div class="task-item" id="task-w2">
+                <div class="task-checkbox">
+                    <input type="checkbox" onchange="updateProgress()">
+                </div>
+                <div class="task-content">
+                    <div class="task-title">📱 Update Social Media</div>
+                    <div class="task-time">⏱️ 5 minutes</div>
+                </div>
+                <div class="task-notes">Post one offer to Instagram, share to WhatsApp status</div>
+            </div>
+        </div>
+        
+        <!-- Friday Section -->
+        <div class="day-section">
+            <h2>📅 Friday <span>(15 minutes)</span></h2>
+            
+            <div class="task-item" id="task-f1">
+                <div class="task-checkbox">
+                    <input type="checkbox" onchange="updateProgress()">
+                </div>
+                <div class="task-content">
+                    <div class="task-title">🔄 Refresh Weekly Offers</div>
+                    <div class="task-time">⏱️ 5 minutes</div>
+                </div>
+                <div class="task-notes">Update countdown timers, add weekend specials</div>
+            </div>
+            
+            <div class="task-item" id="task-f2">
+                <div class="task-checkbox">
+                    <input type="checkbox" onchange="updateProgress()">
+                </div>
+                <div class="task-content">
+                    <div class="task-title">📝 Plan Next Week's Content</div>
+                    <div class="task-time">⏱️ 10 minutes</div>
+                </div>
+                <div class="task-notes">Decide blog topics, offers, featured products</div>
+            </div>
+        </div>
+        
+        <!-- Monthly Bonus Tasks -->
+        <div class="day-section">
+            <h2>📅 Monthly (End of Month) <span>(30 minutes)</span></h2>
+            
+            <div class="task-item">
+                <div class="task-checkbox">
+                    <input type="checkbox" onchange="updateProgress()">
+                </div>
+                <div class="task-content">
+                    <div class="task-title">🗂️ Export Data Backup</div>
+                    <div class="task-time">⏱️ 5 minutes</div>
+                </div>
+                <div class="task-notes">Save JSON files, store securely</div>
+            </div>
+            
+            <div class="task-item">
+                <div class="task-checkbox">
+                    <input type="checkbox" onchange="updateProgress()">
+                </div>
+                <div class="task-content">
+                    <div class="task-title">🔍 Check Google Reviews</div>
+                    <div class="task-time">⏱️ 10 minutes</div>
+                </div>
+                <div class="task-notes">Respond to new reviews, add best ones to website</div>
+            </div>
+            
+            <div class="task-item">
+                <div class="task-checkbox">
+                    <input type="checkbox" onchange="updateProgress()">
+                </div>
+                <div class="task-content">
+                    <div class="task-title">📊 Review Analytics</div>
+                    <div class="task-time">⏱️ 15 minutes</div>
+                </div>
+                <div class="task-notes">Check Google Analytics, see what's working</div>
+            </div>
+        </div>
+        
+        <!-- Notes Section -->
+        <div class="notes-section">
+            <h3><i class="fas fa-pencil-alt"></i> Weekly Notes</h3>
+            <textarea id="weeklyNotes" rows="4" placeholder="Jot down ideas, customer requests, or things to remember for next week..."></textarea>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="button-group">
+            <button class="btn btn-primary" onclick="saveProgress()">
+                <i class="fas fa-save"></i> Save Progress
+            </button>
+            <button class="btn btn-success" onclick="resetWeekly()">
+                <i class="fas fa-redo"></i> Start New Week
+            </button>
+            <button class="btn btn-outline" onclick="clearAll()">
+                <i class="fas fa-trash"></i> Clear All
+            </button>
+        </div>
+    </div>
+    
+    <button class="print-btn" onclick="window.print()" title="Print Checklist">
+        <i class="fas fa-print"></i>
+    </button>
+    
+    <script>
+        // Update week range
+        function getWeekRange() {
+            const today = new Date();
+            const startOfWeek = new Date(today);
+            startOfWeek.setDate(today.getDate() - today.getDay() + 1); // Monday
+            const endOfWeek = new Date(startOfWeek);
+            endOfWeek.setDate(startOfWeek.getDate() + 4); // Friday
+            
+            const options = { month: 'short', day: 'numeric' };
+            return `${startOfWeek.toLocaleDateString('en-US', options)} - ${endOfWeek.toLocaleDateString('en-US', options)}`;
+        }
+        
+        document.getElementById('weekRange').textContent = getWeekRange();
+        
+        // Progress tracking
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.task-item input[type="checkbox"]');
+            const total = checkboxes.length;
+            const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
+            
+            document.getElementById('totalTasks').textContent = total;
+            document.getElementById('completedTasks').textContent = completed;
+            
+            const percentage = (completed / total) * 100;
+            document.getElementById('progressBar').style.width = percentage + '%';
+            
+            // Update task item styling
+            document.querySelectorAll('.task-item').forEach(item => {
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                if (checkbox && checkbox.checked) {
+                    item.classList.add('completed');
+                } else {
+                    item.classList.remove('completed');
+                }
+            });
+            
+            saveProgress();
+        }
+        
+        // Save to localStorage
+        function saveProgress() {
+            const tasks = [];
+            document.querySelectorAll('.task-item').forEach((item, index) => {
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                if (checkbox) {
+                    tasks.push({
+                        id: item.id || `task-${index}`,
+                        completed: checkbox.checked
+                    });
+                }
+            });
+            
+            const notes = document.getElementById('weeklyNotes').value;
+            
+            localStorage.setItem('nextLaptops_checklist', JSON.stringify({
+                tasks: tasks,
+                notes: notes,
+                week: getWeekRange(),
+                lastUpdated: new Date().toISOString()
+            }));
+        }
+        
+        // Load from localStorage
+        function loadProgress() {
+            const saved = localStorage.getItem('nextLaptops_checklist');
+            if (saved) {
+                const data = JSON.parse(saved);
+                
+                // Restore task states
+                data.tasks.forEach(savedTask => {
+                    if (savedTask.id) {
+                        const taskElement = document.getElementById(savedTask.id);
+                        if (taskElement) {
+                            const checkbox = taskElement.querySelector('input[type="checkbox"]');
+                            if (checkbox) checkbox.checked = savedTask.completed;
+                        }
+                    }
+                });
+                
+                // Restore notes
+                if (data.notes) {
+                    document.getElementById('weeklyNotes').value = data.notes;
+                }
+                
+                updateProgress();
+            }
+        }
+        
+        // Reset for new week
+        function resetWeekly() {
+            if (confirm('Start a new week? This will uncheck all tasks but keep your notes.')) {
+                document.querySelectorAll('.task-item input[type="checkbox"]').forEach(cb => {
+                    cb.checked = false;
+                });
+                updateProgress();
+                saveProgress();
+            }
+        }
+        
+        // Clear all data
+        function clearAll() {
+            if (confirm('Clear all progress and notes?')) {
+                localStorage.removeItem('nextLaptops_checklist');
+                document.querySelectorAll('.task-item input[type="checkbox"]').forEach(cb => {
+                    cb.checked = false;
+                });
+                document.getElementById('weeklyNotes').value = '';
+                updateProgress();
+            }
+        }
+        
+        // Auto-save every 30 seconds
+        setInterval(saveProgress, 30000);
+        
+        // Load saved progress on page load
+        window.onload = loadProgress;
+        
+        // Save before unload
+        window.onbeforeunload = function() {
+            saveProgress();
+        };
+    </script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</body>
+</html>
