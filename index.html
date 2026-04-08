@@ -176,36 +176,40 @@
             <li><a href="#contact" tabindex="0">Contact</a></li>
         </ul>
     </div>
-
-    <!-- PlayStation-Inspired Hero Section - Modified to match incase.com -->
+    
+           <!-- Modern Hero Section -->
     <section class="hero" id="home" aria-label="Hero section">
-        <div class="hero-background">
-            <!-- Removed background images, keeping gradient background -->
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="container hero-container">
-                <div class="rotating-headline">
-                    <h1 class="headline-text active">Find perfect laptop for your course</h1>
-                    <p class="headline-subtext active">Browse our collection of quality laptops for university students in Uganda.</p>
-                    <div class="btn-group">
-                        <a href="#products" class="btn btn-primary" tabindex="0">Browse Products</a>
-                    </div>
-                </div>
+        
+        <!-- IMAGE CARD CONTAINER -->
+        <div class="hero-card">
+            <div class="hero-slides-container">
+                <div class="hero-slide active" style="background-image: url('images/hero-2.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('images/weekly-offers4.png');"></div>
+                <div class="hero-slide" style="background-image: url('images/hero-5.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('images/accessories.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('images/muk-campus2.png');"></div>
             </div>
         </div>
-        <div class="hero-indicators" role="tablist">
-            <button class="hero-indicator active" aria-label="Go to slide 1" role="tab" aria-selected="true"></button>
-            <button class="hero-indicator" aria-label="Go to slide 2" role="tab" aria-selected="false"></button>
-            <button class="hero-indicator" aria-label="Go to slide 3" role="tab" aria-selected="false"></button>
-            <button class="hero-indicator" aria-label="Go to slide 4" role="tab" aria-selected="false"></button>
-            <button class="hero-indicator" aria-label="Go to slide 5" role="tab" aria-selected="false"></button>
+        
+    <!-- TEXT CONTENT SECTION (Separate Block Below) -->
+    <div class="hero-text-section">
+        <div class="hero-text-inner">
+            <h1 class="hero-headline">Study Smarter</h1>
+            <p class="hero-subheadline">Find the laptop for you in minutes.</p>
+            <div class="hero-cta-group">
+                <a href="#finder" class="btn btn-primary">Find My Laptop</a>
+            </div>
+            <!-- Pagination moved here -->
+            <div class="hero-indicators" role="tablist" aria-label="Slide navigation">
+                <button class="hero-indicator active" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+                <button class="hero-indicator" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+                <button class="hero-indicator" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+                <button class="hero-indicator" role="tab" aria-selected="false" aria-label="Slide 4"></button>
+                <button class="hero-indicator" role="tab" aria-selected="false" aria-label="Slide 5"></button>
+            </div>
         </div>
-        <!-- Scroll Indicator - Hidden as requested -->
-        <div class="scroll-indicator" aria-hidden="true" style="display: none;">
-            <i class="fas fa-chevron-down scroll-arrow"></i>
-            <span class="scroll-text">Scroll</span>
-        </div>
+    </div>
+
     </section>
 
     <!-- PlayStation-Inspired Previews Section - Now Features Ticker -->

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - Next Laptops UG</title>
+    
+    <!-- Reuse your existing Head links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+      <style>
+        /* Specific styles for the blog post layout */
+        .blog-post-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+        
+        .blog-post-header {
+            padding: 40px 40px 20px;
+        }
+
+        .blog-post-title {
+            font-family: var(--title-font);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .blog-post-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* UPDATED: Cover image now shows fully */
+        .blog-post-cover-image {
+            width: 100%;
+            height: auto; /* Changed from fixed 400px to auto */
+            max-height: 600px; /* Optional: Limits height so it isn't too tall */
+            object-fit: contain; /* Ensures the whole image is visible without cropping */
+            background-color: white;/* Adds a nice background for transparent images */
+            margin-bottom: 30px;
+        }
+
+        .blog-post-content {
+            padding: 0 40px 40px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* UPDATED: Better Spacing for Paragraphs and Points */
+        .blog-post-content p {
+            margin-bottom: 1.5rem; /* Spacing between paragraphs */
+        }
+
+        .blog-post-content h3 {
+            margin-top: 2.5rem; /* Space above headings */
+            margin-bottom: 1.2rem; /* Space below headings */
+            color: var(--primary-color);
+        }
+
+        .blog-post-content ul, 
+        .blog-post-content ol {
+            margin-bottom: 1.5rem; /* Space below lists */
+            padding-left: 25px;
+        }
+
+        .blog-post-content li {
+            margin-bottom: 1rem; /* Space between list points */
+        }
+
+        /* Intro style */
+        .blog-intro {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 2rem !important; /* Extra space after intro */
+        }
+
+        /* Quote style */
+        .blog-quote {
+            background: #f8f9fa;
+            border-left: 5px solid var(--accent-color);
+            padding: 20px 25px;
+            margin: 2rem 0; /* Space above and below quote */
+            font-style: italic;
+            color: #444;
+            font-weight: 500;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Sources style */
+        .blog-sources {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        .blog-sources ul {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 20px 0;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .blog-post-title { font-size: 1.8rem; }
+            .blog-post-header, .blog-post-content { padding-left: 20px; padding-right: 20px; }
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- Reuse your exact Header HTML here -->
+    <header id="header">
+        <div class="header-main-row">
+            <a href="index.html#home" class="logo" tabindex="0">
+                <i class="fas fa-laptop" aria-hidden="true"></i>
+                Next Laptops UG
+            </a>
+            <!-- Simplified header for blog page, or copy full index.html header -->
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class="blog-post-container">
+            <a href="index.html#blog" class="back-link"><i class="fas fa-arrow-left"></i> Back to All Posts</a>
+            
+            <!-- Dynamic Content Area -->
+            <article id="blog-article">
+                <div class="blog-post-header">
+                    <h1 id="post-title" class="blog-post-title">Loading...</h1>
+                    <div class="blog-post-meta">
+                        <span id="post-date"></span>
+                    </div>
+                </div>
+                
+                <img id="post-image" class="blog-post-cover-image" src="" alt="Blog Cover">
+                
+                <div class="blog-post-content">
+                    <p id="post-body">Loading content...</p>
+                </div>
+                <a href="index.html#blog" class="back-link"><i class="fas fa-arrow-left"></i> Back to All Posts</a>
+            </article>
+        </div>
+    </main>
+
+    <!-- Reuse your Footer HTML -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Next Laptops UG. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/data.js"></script> <!-- Load data first -->
+    <script>
+        // Get the ID from the URL (e.g., ?id=1)
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = parseInt(urlParams.get('id'));
+
+        // Find the post in your data
+        const post = blogPosts.find(p => p.id === postId);
+
+        // Populate the HTML
+        if (post) {
+            document.title = post.title + " - Next Laptops UG";
+            document.getElementById('post-title').textContent = post.title;
+            document.getElementById('post-date').textContent = post.date;
+            document.getElementById('post-image').src = post.image;
+            document.getElementById('post-image').alt = post.title;
+            
+            // If you added 'content' to data.js, use it. Otherwise fallback to excerpt.
+            const content = post.content || post.excerpt;
+            document.getElementById('post-body').innerHTML = content;
+        } else {
+            // Handle case where post isn't found
+            document.getElementById('post-title').textContent = "Post Not Found";
+            document.getElementById('post-body').textContent = "Sorry, we couldn't find that blog post.";
+            document.getElementById('post-image').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

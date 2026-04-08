@@ -1,44 +1,44 @@
 // ==========================================
-// DATA FILE
+// DATA FILE - UPDATED HERO SLIDES
 // ==========================================
 
-// PlayStation Hero Section Data
+// Hero Section Data
 const heroSlides = [
     {
-        title: "Find Your Perfect Laptop",
-        subtitle: "Browse our collection of quality laptops for university students in Uganda.",
-        link: "#products",
-        linkText: "Browse Products",
-        image: "https://picsum.photos/seed/laptop-hero-1/1920x1080.jpg"
+        title: "Study Smarter",
+        subtitle: "Find the perfect laptop for you in minutes.",
+        link: "#finder",
+        linkText: "Find My Laptop",
+        image: "images/hero-2.jpg"
     },
     {
-        title: "Explore with Quick View",
-        subtitle: "Click on any laptop to see detailed images, specifications, and condition before you decide.",
-        link: "#products",
-        linkText: "Browse Products",
-        image: "https://picsum.photos/seed/laptop-hero-2/1920x1080.jpg"
-    },
-    {
-        title: "Student Tech Insights",
-        subtitle: "Read our latest blog posts for laptop reviews, study tips and tech news for Ugandan students.",
-        link: "#blog",
-        linkText: "Read Our Blog",
-        image: "https://picsum.photos/seed/laptop-hero-3/1920x1080.jpg"
-    },
-    {
-        title: "Check out our Weekly Offers",
-        subtitle: "Don't miss out on amazing deals and discounts on selected laptops. Limited time offers available now!",
+        title: "Weekly Deals",
+        subtitle: "Premium tech at student-friendly prices.",
         link: "#weekly-offers",
-        linkText: "View Weekly Offers",
-        image: "https://picsum.photos/seed/laptop-hero-4/1920x1080.jpg"
+        linkText: "Check Offers",
+        image: "images/weekly-offers4.png"
     },
     {
-        title: "We deliver to your campus",
-        subtitle: "Free delivery to university campuses across Uganda. Get your laptop right where you need it.",
+        title: "Built for Performance",
+        subtitle: "Reliable laptops for every task.",
+        link: "#products",
+        linkText: "Browse Laptops",
+        image: "images/hero-5.jpg"
+    },
+    {
+        title: "Essential Accessories",
+        subtitle: "Everything you need to complete your setup.",
+        link: "#other-services",
+        linkText: "Browse Accessories",
+        image: "images/accessories.jpg"
+    },
+    {
+        title: "Campus Delivery",
+        subtitle: "Delivered straight to your campus or hostel.",
         link: "#contact",
         linkText: "Contact Us",
-        image: "https://picsum.photos/seed/laptop-hero-5/1920x1080.jpg"
-    }
+        image: "images/muk-campus.jpg"
+    },
 ];
 
 // Product Section Data
@@ -1146,44 +1146,341 @@ const weeklyOffers = [
 const blogPosts = [
     {
         id: 1,
-        title: "Best Laptops for Engineering Students in 2025",
-        date: "May 15, 2025",
+        title: "Best Laptops for Engineering Students in 2026",
+        date: "January 23, 2026",
         excerpt: "Discover top laptops that can handle demanding engineering software while staying within a student budget.",
-        image: "https://picsum.photos/seed/blog1/400/200.jpg", 
-        link: "#"
+        image: "images/blog1.png", // Engineering/Coding setup image
+        link: "#",
+        content: `
+            <p class="blog-intro">Engineering students in 2026 face a unique challenge: course requirements are getting heavier with 3D modeling and simulation software, yet budgets remain tight. Whether you are at Makerere, Kyambogo, or MUBS, your laptop needs to be a portable workstation capable of running AutoCAD, Revit, SolidWorks, or heavy programming environments without crashing during a final project submission.</p>
+
+            <h3>1. The 2026 Minimum Spec Requirement</h3>
+            <p>Software requirements have evolved. While 8GB of RAM was standard a few years ago, modern engineering applications demand more. For a smooth experience in 2026, do not go below these specifications:</p>
+            <ul>
+                <li><strong>Processor (CPU):</strong> Intel Core i7 (13th Gen or newer) or AMD Ryzen 7 (7000 series). Look for "H-series" chips (e.g., i7-13700H) which are built for high performance, not just battery life.</li>
+                <li><strong>RAM:</strong> 16GB is the absolute minimum. If you are doing 3D rendering or running virtual machines for coding, aim for 32GB.</li>
+                <li><strong>Graphics (GPU):</strong> A dedicated GPU is crucial. NVIDIA RTX 3050 or 4050 (or newer) handles CAD and rendering much better than integrated graphics.</li>
+            </ul>
+
+            <h3>2. Top Pick: The Mobile Workstation</h3>
+            <p>For pure reliability and durability on campus, the <strong>Lenovo ThinkPad P-series</strong> or <strong>Dell Precision</strong> remain the kings of engineering laptops. These are "mobile workstations"—built specifically for CAD.</p>
+            
+            <!-- Provision for Workstation Image -->
+            <img src="images/thinkpad-p-series.jpg" alt="Lenovo ThinkPad P Series Workstation" class="blog-inline-image">
+            
+            <p>While they can be expensive brand new, buying a refurbished ThinkPad P1 or P53 from a trusted vendor in Kampala offers incredible value. Their keyboards are legendary for long typing sessions, and their cooling systems are designed to run heavy simulations for hours without overheating—a common killer of standard "office" laptops in Uganda's climate.</p>
+
+            <h3>3. Best Value: "Gaming" Laptops for Engineering</h3>
+            <p>Don't let the label fool you. In the Ugandan market, "Gaming Laptops" are often the most affordable way to get high-end specs. An <strong>ASUS TUF</strong> or <strong>Lenovo LOQ</strong> with an RTX 4050 graphics card is often 30% cheaper than a business workstation with similar power.</p>
+            
+            <!-- Provision for Gaming Laptop Image -->
+            <img src="images/asus-tuf-gaming.jpg" alt="ASUS TUF Gaming Laptop" class="blog-inline-image">
+            
+            <p>The trade-off? Battery life. These laptops are often heavy and might only give you 3-4 hours of lectures before needing a charge. However, if your main work is in the halls of residence or a computer lab where power is available, this is the most cost-effective route.</p>
+
+            <blockquote class="blog-quote">
+                "For engineering students, a dedicated GPU isn't just for gaming—it offloads the heavy processing of 3D geometry from the CPU, making your design software significantly faster and more stable." — AutoDesk Hardware Recommendations
+            </blockquote>
+
+            <h3>4. The Mac Decision</h3>
+            <p>The <strong>MacBook Pro (M3/M4 chips)</strong> offers mind-blowing battery life and performance. However, engineering students need to be careful. While it runs programming tools perfectly, compatibility with Windows-specific software like Revit or older versions of SolidWorks can be tricky, requiring virtualization software like Parallels Desktop.</p>
+            
+            <!-- Provision for MacBook Pro Image -->
+            <img src="images/macbook-pro-2026.jpg" alt="MacBook Pro M3 Laptop" class="blog-inline-image">
+
+            <p>If your course is heavy on Windows-exclusive CAD, a Windows laptop is still the safer bet for 2026. But for Electrical and Computer Engineering students, the MacBook Pro is often the top choice.</p>
+
+            <h3>Conclusion</h3>
+            <p>Your laptop is your most important tool. Don't settle for a basic "Intel Core i3" or "Celeron" just to save money—it will struggle with engineering software and likely crash during exams. Prioritize a Dedicated Graphics Card and 16GB RAM. Whether you choose a rugged ThinkPad or a value-packed gaming laptop, ensure it has the cooling and power to last your four-year journey.</p>
+
+            <div class="blog-sources">
+                <strong>Sources:</strong>
+                <ul>
+                    <li>AutoDesk Knowledge Network, "System Requirements for AutoCAD 2026"</li>
+                    <li>SolidWorks System Requirements</li>
+                    <li>Tom's Hardware, "Best Laptops for Engineering Students 2026"</li>
+                </ul>
+            </div>
+        `
     },
-    {
+        {
         id: 2,
-        title: "How to Extend Your Laptop's Battery Life",
-        date: "May 10, 2025",
-        excerpt: "Simple tips and tricks to help you get most out of your laptop's battery during long study sessions.",
-        image: "https://picsum.photos/seed/blog2/400/200.jpg", 
-        link: "#"
+        title: "Best Laptops for University Students in Uganda (2026 Guide)",
+        date: "January 15, 2026",
+        excerpt: "A comprehensive guide to the best laptops for Ugandan students, balancing performance, budget, and durability.",
+        image: "images/blog2.jpeg",
+        link: "#",
+        content: `
+            <p class="blog-intro">Choosing a laptop in Uganda is different from other places. You need a machine that can handle UMEME power fluctuations, survive the dust of campus, and still be powerful enough for your coursework—all without breaking the bank. Here is our 2026 guide to the top 5 laptops for general university students in Uganda.</p>
+
+            <h3>1. The All-Rounder: HP Pavilion 15</h3>
+            <p>For the average student, the HP Pavilion 15 remains the gold standard. It balances performance, build quality, and price better than almost any other machine on the market in Kampala today.</p>
+            
+            <!-- Provision for Laptop Image -->
+            <img src="images/blog/hp-pavilion-ug.jpg" alt="HP Pavilion 15 Laptop" class="blog-inline-image">
+            
+            <ul>
+                <li><strong>Why it works in Uganda:</strong> Spare parts are readily available in Kampala, and most local technicians know how to service them. It handles heat relatively well compared to thinner metal laptops.</li>
+                <li><strong>Best for:</strong> Business, Humanities, and Social Sciences students.</li>
+                <li><strong>Expected Budget:</strong> 1,500,000 - 2,300,000 UGX.</li>
+            </ul>
+
+            <h3>2. The Battery Champion: MacBook Air (M-series)</h3>
+            <p>If your budget allows, the MacBook Air with the M2 or M3 chip is unmatched for efficiency. It is the only laptop that can reliably last through a full day of lectures, library sessions, and group discussions without needing a charger.</p>
+            
+            <!-- Provision for Laptop Image -->
+            <img src="images/blog/macbook-air-ug.jpg" alt="MacBook Air M2" class="blog-inline-image">
+            
+            <ul>
+                <li><strong>Why it works in Uganda:</strong> During load-shedding or power outages, this laptop is a lifesaver. It also holds its resale value incredibly well, meaning you can sell it after graduation to upgrade.</li>
+                <li><strong>Best for:</strong> Law, Journalism, and Arts students who prioritize portability.</li>
+                <li><strong>Expected Budget:</strong> 3,500,000 - 5,000,000 UGX.</li>
+            </ul>
+
+            <h3>3. The Durability King: Lenovo ThinkPad E14/E15</h3>
+            <p>Lenovo's ThinkPads are built to military-grade specifications. For a student traversing campus daily, dust, rain, and accidental bumps are real risks. The E-series offers this legendary durability at a student-friendly price point.</p>
+            
+            <!-- Provision for Laptop Image -->
+            <img src="images/blog/thinkpad-ug.jpg" alt="Lenovo ThinkPad Laptop" class="blog-inline-image">
+            
+            <ul>
+                <li><strong>Why it works in Uganda:</strong> The spill-resistant keyboard is a godsend during long study sessions. The rigid chassis protects internal components from the vibrations of boda-boda rides and rough transport.</li>
+                <li><strong>Best for:</strong> Computer Science and Engineering students who need a reliable workhorse.</li>
+                <li><strong>Expected Budget:</strong> 1,800,000 - 2,800,000 UGX.</li>
+            </ul>
+
+            <h3>4. The Reliable Alternative: Dell Inspiron 15</h3>
+            <p>Often overshadowed by HP, the Dell Inspiron 15 is a solid workhorse. The 3000 series is budget-friendly, while the 5000 series offers more premium features. Dell’s chassis design often allows for easy upgrades (RAM/SSD) later on.</p>
+            
+            <!-- Provision for Laptop Image -->
+            <img src="images/blog/dell-inspiron-ug.jpg" alt="Dell Inspiron 15 Laptop" class="blog-inline-image">
+            
+            <ul>
+                <li><strong>Why it works in Uganda:</strong> Dell laptops generally have robust charging ports and hinges—common failure points for cheaper laptops. If you want something different from the ubiquitous HP, this is a safe bet.</li>
+                <li><strong>Best for:</strong> General Science and Education students.</li>
+                <li><strong>Expected Budget:</strong> 1,300,000 - 2,000,000 UGX.</li>
+            </ul>
+
+            <h3>5. The Budget Pick: ASUS VivoBook 15</h3>
+            <p>For students working with a tighter budget, the ASUS VivoBook 15 is a revelation. It often offers the latest processors and a sleek design for significantly less than competitors. It is lightweight and modern, perfect for a first-year student.</p>
+            
+            <!-- Provision for Laptop Image -->
+            <img src="images/blog/asus-vivobook-ug.jpg" alt="ASUS VivoBook 15" class="blog-inline-image">
+            
+            <ul>
+                <li><strong>Why it works in Uganda:</strong> It maximizes specs per shilling. If you need a Core i5 or i7 but can't afford a premium build, this laptop gives you that processing power without the premium price tag.</li>
+                <li><strong>Best for:</strong> First-year students and those on a strict budget.</li>
+                <li><strong>Expected Budget:</strong> 1,100,000 - 1,600,000 UGX.</li>
+            </ul>
+
+            <h3>Conclusion</h3>
+            <p>Ultimately, the "best" laptop depends on your course and budget. For most Ugandan students, the <strong>HP Pavilion</strong> or <strong>Dell Inspiron</strong> offer the safest middle ground. For those prioritizing longevity, the <strong>MacBook Air</strong> is the premium choice, while the <strong>ASUS VivoBook</strong> ensures no student is left behind due to budget constraints.</p>
+
+            <div class="blog-sources">
+                <strong>Sources:</strong>
+                <ul>
+                    <li>Lenovo Product Specifications, "ThinkPad Military Specification Testing"</li>
+                    <li>Apple Battery Life Testing Data</li>
+                    <li>Local Market Price Averages (Kampala 2026)</li>
+                </ul>
+            </div>
+        `
     },
     {
         id: 3,
         title: "New vs Refurbished: Which is Right for You?",
-        date: "May 5, 2025",
+        date: "March 5, 2026",
         excerpt: "A comprehensive comparison to help you decide between new and refurbished laptops for your university needs.",
-        image: "https://picsum.photos/seed/blog3/400/200.jpg", 
-        link: "#"
+        image: "images/blog3.png", // High quality laptop image
+        link: "#",
+        // YOUR CONTENT STARTS HERE
+        content: `
+            <p class="blog-intro">Walking into an electronics shop in Kampala, you're faced with a tough choice: a brand-new laptop fresh from the factory, or a refurbished unit that costs significantly less. For a Ugandan university student working with a tight budget, this isn't just a preference—it's a financial strategy. Understanding the difference can save you hundreds of thousands of shillings without sacrificing your academic performance.</p>
+
+            <h3>1. Defining "Refurbished": It's Not Just "Used"</h3>
+            <p>There is a massive difference between a "used" laptop sold on OLUC or Jiji and a "refurbished" laptop. According to <strong>Consumer Reports</strong>, refurbished electronics are products that have been returned to the manufacturer or vendor due to a defect, a change of mind, or lease returns. Crucially, they go through a rigorous testing process [^1^].</p>
+            
+            <ul>
+                <li><strong>Factory Refurbished:</strong> These are restored by the original manufacturer (e.g., Dell, Apple, HP). They are tested to meet the same quality standards as new units and often come with a warranty. This is the safest bet.</li>
+                <li><strong>Seller Refurbished:</strong> These are restored by third-party vendors. While cheaper, quality varies. At <em>Next Laptops UG</em>, we ensure these units pass strict hardware checks, but in the general market, you must be cautious.</li>
+            </ul>
+
+            <blockquote class="blog-quote">
+                "Refurbished products often undergo more rigorous testing than new products because they have to prove they are defect-free before being resold." — Consumer Reports Investigation [^1^]
+            </blockquote>
+
+            <h3>2. The Depreciation Advantage</h3>
+            <p>Laptops lose value incredibly fast—much like a new car driving off the lot. Data from <em>Computer World</em> suggests a laptop can lose 30% of its value in the first year alone [^2^]. </p>
+            <p>By buying refurbished, you let the first owner take that depreciation hit. You can often get a high-end business laptop (like a ThinkPad or Latitude) that originally cost 3 million UGX for around 1.5 million UGX. This allows you to get premium build quality and performance—essential for engineering or coding—on a student budget.</p>
+
+            <h3>3. The Warranty Gap: What You Need to Know</h3>
+            <p>The biggest downside to refurbished units is the warranty. While new laptops typically come with a 12-month manufacturer warranty, refurbished units often come with a shorter period, usually 3 to 6 months [^3^].</p>
+            
+            <p>In Uganda, where power surges are common, this is a critical factor. However, many vendors (including us) offer extended warranties on refurbished units because we trust the quality of the hardware. Always ask:</p>
+            <ul>
+                <li>Does the warranty cover the battery?</li>
+                <li>Is there a return window if the laptop fails immediately?</li>
+                <li>Is the software genuine? (Refurbished units should have licensed Windows installed).</li>
+            </ul>
+
+            <h3>4. The Battery Reality</h3>
+            <p>One component that does degrade over time is the battery. A refurbished laptop is only as good as its battery life. A study by <em>Storagereview</em> notes that lithium-ion batteries lose about 20% capacity after 500 charge cycles [^4^].</p>
+            <p>When buying refurbished, ask for the "cycle count" (for MacBooks) or ensure the vendor has replaced the battery with a new unit. At Next Laptops UG, we verify battery health on all refurbished units to ensure you aren't tethered to a wall socket after 20 minutes.</p>
+
+            <h3>Conclusion</h3>
+            <p>If you are a student in fields requiring high computing power—like Architecture, Engineering, or Computer Science—a refurbished business-class laptop offers the best value for money. You get durability and specs that a new budget laptop at the same price point simply cannot match. However, if peace of mind and a fresh battery are your top priorities, a new laptop with a full warranty is the way to go.</p>
+
+            <div class="blog-sources">
+                <strong>Sources:</strong>
+                <ul>
+                    <li>Consumer Reports, "The Truth About Refurbished Electronics" [^1^]</li>
+                    <li>Computer World, "IT Asset Management and Depreciation Rates" [^2^]</li>
+                    <li>Intel, "Guide to Buying Refurbished Tech" [^3^]</li>
+                    <li>StorageReview, "Lithium-Ion Battery Longevity Study" [^4^]</li>
+                </ul>
+            </div>
+        `
     },
-    {
+       {
         id: 4,
-        title: "Essential Software for University Students",
-        date: "April 28, 2025",
-        excerpt: "A guide to must-have software applications that will help you succeed in your academic journey.",
-        image: "https://picsum.photos/seed/blog4/400/200.jpg", 
-        link: "#"
+        title: "How Much RAM & Storage do you really need for university?",
+        date: "February 5, 2026",
+        excerpt: "Stop guessing about specs. We break down exactly how much memory and disk space you need based on your course and budget.",
+        image: "images/blog4.jpeg", // Generic laptop hardware image
+        link: "#",
+        content: `
+            <p class="blog-intro">Walking through the computer shops in Kampala, you'll hear terms like "8GB RAM" and "512GB SSD" thrown around. But what do these numbers actually mean for a university student? Buying too little means a slow, frustrating laptop; buying too much means spending money you could have used for tuition. Here is the definitive guide for 2026.</p>
+
+            <h3>Part 1: RAM (Random Access Memory)</h3>
+            <p>Think of RAM as your laptop's short-term memory. It determines how many things you can do at once. If you run out of RAM, your laptop starts using your storage drive as temporary memory, which slows everything down drastically.</p>
+
+            <ul>
+                <li><strong>4GB (The "Don't Buy" Zone):</strong> In 2026, 4GB is obsolete. Windows 10/11 alone consumes nearly half of this. Your laptop will lag if you try to open a PDF and a browser at the same time. Avoid these unless your budget is extremely tight and you only plan to type documents.</li>
+                <li><strong>8GB (The Baseline):</strong> This is the minimum standard for a functional university laptop. You can browse with 10-15 tabs open, type assignments, and stream music simultaneously. It’s perfect for Arts, Humanities, and basic Business students.</li>
+                <li><strong>16GB (The Sweet Spot):</strong> Highly recommended for Engineering, Computing, and Science students. If you are coding, running simulations, or editing video, 16GB ensures smooth performance. It is also more "future-proof," meaning your laptop will still be fast in your 3rd and 4th year.</li>
+                <li><strong>32GB+ (The Specialist):</strong> Only necessary for high-end architectural rendering or heavy data science. Most students do not need this.</li>
+            </ul>
+
+            <blockquote class="blog-quote">
+                "8GB of RAM is the absolute floor for a usable Windows laptop in 2026. 16GB is the target for anyone wanting their device to stay fast for 4 years." — PCMag Hardware Guide
+            </blockquote>
+
+            <h3>Part 2: Storage (SSD vs. HDD)</h3>
+            <p>Storage is where your files live permanently. The type of storage is actually more important than the amount.</p>
+            
+            <ul>
+                <li><strong>HDD (Hard Disk Drive):</strong> These are the older, spinning mechanical drives. They are cheap and offer huge space (1TB+), but they are slow. A laptop with an HDD will take 2-3 minutes to turn on. Avoid these if possible.</li>
+                <li><strong>SSD (Solid State Drive):</strong> These are chips, not moving parts. They are silent and incredibly fast. A laptop with an SSD turns on in 10-15 seconds. <strong>Always prioritize an SSD.</strong> Even a smaller SSD (256GB) is better than a massive HDD (1TB).</li>
+            </ul>
+
+            <h3>How Much Storage Do You Need?</h3>
+            <p>In Uganda, where internet bundles can be expensive, we tend to download movies, music, and lectures for offline viewing. This fills up storage fast.</p>
+            
+            <ul>
+                <li><strong>Why it works in Uganda:</strong> 256GB SSD is the minimum. It holds your OS, software, and documents. However, if you plan to store a lot of movies or offline courses, 512GB is safer.</li>
+                <li><strong>The Cloud Backup Plan:</strong> If you buy a 256GB laptop, you can use Google Drive or OneDrive (many universities offer free accounts) to store your study materials, keeping your hard drive free for system apps.</li>
+            </ul>
+
+            <h3>Summary Recommendation by Course</h3>
+            <ul>
+                <li><strong>Arts/Humanities:</strong> 8GB RAM + 256GB SSD (Budget-friendly).</li>
+                <li><strong>Business/Education:</strong> 8GB RAM + 512GB SSD (Extra space for reports/media).</li>
+                <li><strong>Engineering/Computing:</strong> 16GB RAM + 512GB SSD (Performance requirement).</li>
+            </ul>
+
+            <div class="blog-sources">
+                <strong>Sources:</strong>
+                <ul>
+                    <li>PCMag, "How Much RAM Do You Need?"</li>
+                    <li>Tom's Hardware, "SSD vs HDD Guide"</li>
+                    <li>Microsoft Windows 11 System Requirements</li>
+                </ul>
+            </div>
+        `
     },
-    {
+     {
         id: 5,
-        title: "Laptop Maintenance Tips for Longevity",
-        date: "April 20, 2025",
-        excerpt: "Learn how to properly maintain your laptop to ensure it lasts throughout your university years and beyond.",
-        image: "https://picsum.photos/seed/blog5/400/200.jpg", 
-        link: "#"
-    }
+        title: "Top 5 Budget Laptops for Students Under UGX 1.5 Million",
+        date: "April 5, 2026",
+        excerpt: "Tight budget? No problem. Here are the best student laptops that offer real performance without breaking the bank.",
+        image: "images/blog5.jpeg", // Generic affordable laptop look
+        link: "#",
+        content: `
+            <p class="blog-intro">Let's be honest: not every student can afford a 3 million shilling laptop. But does a tight budget mean you have to buy a slow, frustrating machine? Absolutely not. In Uganda's 2026 market, 1.5 million UGX is a sweet spot where you transition from "cheap toys" to "usable tools." Here are the top 5 laptops that offer the best value for money right now.</p>
+
+            <h3>1. The King of Budget: Lenovo IdeaPad Slim 3</h3>
+            <p>The IdeaPad Slim 3 dominates the entry-level market. It usually features AMD Ryzen 3 or Intel Core i3 12th gen processors, which are surprisingly snappy for document editing and web browsing.</p>
+            
+            <!-- Provision for Laptop Image -->
+            <img src="images/blog/lenovo-ideapad-slim.jpg" alt="Lenovo IdeaPad Slim 3" class="blog-inline-image">
+            
+            <ul>
+                <li><strong>Why it works in Uganda:</strong> It has a decent selection of ports (HDMI, USB-A) so you don't need to buy expensive dongles. It’s light enough to carry daily without breaking your back.</li>
+                <li><strong>Best for:</strong> General students needing a reliable daily driver.</li>
+                <li><strong>Expected Budget:</strong> 1,200,000 - 1,450,000 UGX.</li>
+            </ul>
+
+            <h3>2. The Workhorse: HP 15s (or 255 G9/G10)</h3>
+            <p>Walking into any computer lab in Kampala, you will see the HP 15 series everywhere. It is the standard "office laptop" re-purposed for students. It often comes with 8GB RAM and a 256GB SSD—exactly the minimum specs you need.</p>
+            
+            <!-- Provision for Laptop Image -->
+            <img src="images/blog/hp-15s-budget.jpg" alt="HP 15s Laptop" class="blog-inline-image">
+            
+            <ul>
+                <li><strong>Why it works in Uganda:</strong> Spare parts are everywhere. If your keyboard or screen has an issue, any technician in Kampala can fix it cheaply. The plastic chassis is durable enough for campus life.</li>
+                <li><strong>Best for:</strong> Business and Arts students.</li>
+                <li><strong>Expected Budget:</strong> 1,100,000 - 1,400,000 UGX.</li>
+            </ul>
+
+            <h3>3. The Smart Choice: Refurbished HP EliteBook 840 G5/G6</h3>
+            <p>This is the "insider tip" for smart shoppers. Instead of buying a brand new low-end laptop, buy a refurbished business laptop. The EliteBook was originally a premium corporate device. It has better build quality, screen, and keyboard than any new budget laptop.</p>
+            
+            <!-- Provision for Laptop Image -->
+            <img src="images/blog/elitebook-refurb.jpg" alt="Refurbished HP EliteBook" class="blog-inline-image">
+            
+            <ul>
+                <li><strong>Why it works in Uganda:</strong> You get an Intel Core i5 (8th Gen) processor for the price of an i3. It handles heavy multitasking much better than the other budget options on this list.</li>
+                <li><strong>Best for:</strong> Computer Science and Engineering students on a budget.</li>
+                <li><strong>Expected Budget:</strong> 1,300,000 - 1,500,000 UGX.</li>
+            </ul>
+
+            <h3>4. The Screen Star: ASUS VivoBook Go 15</h3>
+            <p>ASUS often includes "Anti-glare" displays on their budget models, which is a lifesaver if you study outdoors or in bright lecture halls. The VivoBook Go is designed specifically for portability and basic productivity.</p>
+            
+            <!-- Provision for Laptop Image -->
+            <img src="images/blog/asus-vivobook-go.jpg" alt="ASUS VivoBook Go" class="blog-inline-image">
+            
+            <ul>
+                <li><strong>Why it works in Uganda:</strong> It's incredibly light (under 1.6kg). It also features a "Lay-flat" hinge that lets you fold the screen flat—great for group discussions around a table.</li>
+                <li><strong>Best for:</strong> Students constantly on the move.</li>
+                <li><strong>Expected Budget:</strong> 1,000,000 - 1,300,000 UGX.</li>
+            </ul>
+
+            <h3>5. The Classic: Dell Inspiron 3520</h3>
+            <p>While it might look a bit traditional, the Inspiron 3520 is built like a tank. It prioritizes function over form. It often features a slightly larger chassis, which aids in cooling—a benefit in our warm climate.</p>
+            
+            <!-- Provision for Laptop Image -->
+            <img src="images/blog/dell-inspiron-budget.jpg" alt="Dell Inspiron 3520" class="blog-inline-image">
+            
+            <ul>
+                <li><strong>Why it works in Uganda:</strong> Dell's "ExpressCharge" feature often charges the battery up to 80% in just an hour—perfect for a quick top-up between lectures.</li>
+                <li><strong>Best for:</strong> Students who prioritize durability and fast charging.</li>
+                <li><strong>Expected Budget:</strong> 1,200,000 - 1,500,000 UGX.</li>
+            </ul>
+
+            <h3>Conclusion</h3>
+            <p>You don't need to break the bank to get a degree. If you are strictly under 1.5 million UGX, we strongly recommend the <strong>Refurbished EliteBook</strong> for performance or the <strong>Lenovo IdeaPad</strong> for a balance of new hardware and reliability. Avoid laptops with "Celeron" or "Pentium" processors; they are often cheaper (around 800k UGX) but will frustrate you within months.</p>
+
+            <div class="blog-sources">
+                <strong>Sources:</strong>
+                <ul>
+                    <li>Local Vendor Pricing (Kampala 2026)</li>
+                    <li>PassMark CPU Benchmarks (Comparing i3 vs Celeron)</li>
+                    <li>Dell & HP Official Specifications</li>
+                </ul>
+            </div>
+        `
+    },
 ];
 
 // Features data for ticker
