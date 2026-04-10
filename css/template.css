@@ -149,8 +149,8 @@ header {
 .menu-toggle {
     position: fixed;
     /* Top was 10px, causing it to sit in the notification bar.
-       Changed to 70px to center it inside the header (40px notification + 30px padding) */
-    top: 70px; 
+       Changed to 50px to center it inside the header (40px notification + 10px padding) */
+    top: 50px; 
     right: 50px;
     display: none;
     background: none;
