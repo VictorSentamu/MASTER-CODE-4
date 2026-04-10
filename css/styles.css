@@ -1353,9 +1353,16 @@ header {
             width: 100%;
         }
 
-        .mobile-nav a {
+        /* ==========================================
+           FIX 2: Mobile Nav Links Color (Main Index)
+           ========================================== */
+        .mobile-nav a,
+        .mobile-nav a:link,
+        .mobile-nav a:visited,
+        .mobile-nav a:hover,
+        .mobile-nav a:active {
             text-decoration: none;
-            color: white;
+            color: white !important; /* Force white color */
             font-weight: 500;
             transition: var(--transition);
             position: relative;
@@ -1363,13 +1370,40 @@ header {
             display: block;
             padding: var(--spacing-md) 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            -webkit-tap-highlight-color: transparent; /* Remove blue tap highlight */
         }
 
         .mobile-nav a:hover,
         .mobile-nav a:focus {
-            color: var(--accent-color);
+            color: var(--accent-color) !important; /* Accent on hover */
             transform: translateX(5px);
         }
+
+/* ============================================
+   PERFECT PRODUCT CAROUSEL - MOBILE OPTIMIZED
+   ============================================ */
+
+/* Mobile product cards - larger and no blur */
+@media (max-width: 767px) {
+    
+    /* ==========================================
+       FIX 3: Hide Product Pagination Dots
+       ========================================== */
+    .product-carousel-pagination {
+        display: none !important;
+    }
+
+    .product-card {
+        flex: 0 0 90%; /* Slightly larger - 90% instead of 100% - 24px */
+        width: 90%; /* Slightly larger */
+        margin: 0 5%; /* Center with 5% margin on each side */
+        transform: none !important; /* No transform on mobile */
+        opacity: 1 !important; /* No opacity changes */
+        filter: none !important; /* No blur effects */
+        -webkit-filter: none !important; /* No blur effects for Safari */
+        transition: box-shadow 0.3s ease !important; /* Only animate shadow */
+    }  
+}
 
      /* Overlay for mobile menu */
 .overlay {

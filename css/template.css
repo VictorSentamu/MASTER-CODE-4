@@ -65,7 +65,7 @@ img { max-width: 100%; height: auto; }
 
 header {
     position: fixed;
-    top: 40px;
+    top: 40px; /* Sits below notification */
     left: 0;
     width: 100%;
     background: rgba(26, 26, 46, 0.95);
@@ -143,10 +143,14 @@ header {
 @keyframes pop { 0% { transform: scale(1); } 50% { transform: scale(1.4); background: #ff6b6b; } 100% { transform: scale(1); } }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Mobile Menu Button */
+/* ========================================== */
+/* FIX 1: Mobile Menu Button Positioning      */
+/* ========================================== */
 .menu-toggle {
     position: fixed;
-    top: 10px;
+    /* Top was 10px, causing it to sit in the notification bar.
+       Changed to 60px to center it inside the header (40px notification + ~20px padding) */
+    top: 60px; 
     right: 50px;
     display: none;
     background: none;
@@ -184,9 +188,26 @@ header {
 .mobile-nav-header { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 32px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 16px; }
 .mobile-nav-logo { color: white; font-weight: 700; font-size: 1.2rem; }
 .mobile-nav-close { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+/* ========================================== */
+/* FIX 2: Mobile Nav Links Color              */
+/* ========================================== */
 .mobile-nav ul { width: 100%; }
 .mobile-nav li { margin: 15px 0; width: 100%; }
-.mobile-nav a { color: white; font-weight: 500; display: block; padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+
+/* Forcing white color on all link states to prevent browser default blue */
+.mobile-nav a, 
+.mobile-nav a:link, 
+.mobile-nav a:visited, 
+.mobile-nav a:hover, 
+.mobile-nav a:active {
+    color: white !important;
+    font-weight: 500;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    -webkit-tap-highlight-color: transparent; /* Removes blue flash on tap */
+}
 
 .overlay {
     position: fixed;
@@ -214,8 +235,8 @@ header {
         align-items: center !important;       /* Center items vertically */
         position: fixed !important;           /* Fixed to viewport */
         top: 55px !important;                 /* 40px (notification) + 30px (half of 60px header) */
-        right: 80px !important;               /* ← Adjust horizontal position here */
-        transform: translateY(-50%);          /* Perfect vertical centering */
+        right: 80px !important;               /* Adjust horizontal position */
+        transform: translateY(-50%);
         z-index: 1002 !important;             /* Above header */
         gap: 12px !important;                 /* Space between cart & wishlist icons */
         margin-left: 0 !important;            /* Reset margin */
@@ -226,7 +247,7 @@ header {
 /* Even smaller screens - fine-tune if needed */
 @media (max-width: 480px) {
     .header-icons-wrapper {
-        right: 60px !important;               /* ← Move closer to edge on smaller screens */
+        right: 60px !important;               /* Move closer to edge on smaller screens */
         gap: 8px !important;                  /* Tighter gap */
     }
 }
