@@ -1353,16 +1353,9 @@ header {
             width: 100%;
         }
 
-        /* ==========================================
-           FIX 2: Mobile Nav Links Color (Main Index)
-           ========================================== */
-        .mobile-nav a,
-        .mobile-nav a:link,
-        .mobile-nav a:visited,
-        .mobile-nav a:hover,
-        .mobile-nav a:active {
+        .mobile-nav a {
             text-decoration: none;
-            color: white !important; /* Force white color */
+            color: white;
             font-weight: 500;
             transition: var(--transition);
             position: relative;
@@ -1370,12 +1363,11 @@ header {
             display: block;
             padding: var(--spacing-md) 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            -webkit-tap-highlight-color: transparent; /* Remove blue tap highlight */
         }
 
         .mobile-nav a:hover,
         .mobile-nav a:focus {
-            color: var(--accent-color) !important; /* Accent on hover */
+            color: var(--accent-color);
             transform: translateX(5px);
         }
 

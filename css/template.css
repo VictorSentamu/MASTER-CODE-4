@@ -150,7 +150,7 @@ header {
     position: fixed;
     /* Top was 10px, causing it to sit in the notification bar.
        Changed to 60px to center it inside the header (40px notification + ~20px padding) */
-    top: 60px; 
+    top: 65px; 
     right: 50px;
     display: none;
     background: none;
