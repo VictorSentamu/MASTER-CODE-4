@@ -1594,7 +1594,7 @@ body {
     .hero-slides-container {
         position: relative;
         width: 100%;
-        height: 400px;
+        height: 350px;
     }
 
     /* 2. TEXT CONTENT SECTION (Below Card) */
@@ -1602,7 +1602,7 @@ body {
         display: block;
         width: 100%;
         background-color: var(--light-color);
-        padding: 30px 20px;
+        padding: 20px 20px;
         text-align: center;
     }
 
@@ -1612,7 +1612,7 @@ body {
     }
 
     .hero-headline {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         color: var(--primary-color);
         margin-bottom: 8px;
         text-shadow: none;
@@ -2154,21 +2154,26 @@ body {
     border-radius: 5px;
 }
 
-/* Improved arrow buttons */
+/* Updated arrow container for side-by-side layout */
+.product-carousel-arrows {
+    display: flex;
+    gap: 12px;  /* Space between arrows */
+}
+
+/* Individual arrow buttons */
 .product-carousel-arrow {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     color: var(--primary-color);
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 10;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .product-carousel-arrow:hover {
@@ -5768,5 +5773,94 @@ body {
     
     .search-result-type {
         display: none; /* Hide type tag on mobile for space */
+    }
+}
+
+/* ==========================================
+   FIX: Remove Blue Browser Default from Dropdowns
+   ========================================== */
+
+/* Override browser default blue for select dropdowns in Laptop Finder */
+.laptop-finder select,
+.finder-form select,
+.form-control select,
+.budget-select {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Style the select dropdown on focus */
+.laptop-finder select:focus,
+.finder-form select:focus,
+.form-control:focus,
+.budget-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
+/* Style for select dropdown options (the popup menu) */
+.laptop-finder select option,
+.finder-form select option,
+.budget-select option {
+    background-color: white;
+    color: #333;
+    padding: 12px;
+}
+
+/* Remove default blue highlight on mobile tap */
+select,
+.form-control,
+.budget-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1a2e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+/* Remove blue highlight on active/selected state */
+.laptop-finder select:active,
+.laptop-finder select:focus-visible,
+.form-control:active,
+.form-control:focus-visible {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* For Webkit browsers - remove blue glow */
+.laptop-finder select:focus,
+.form-control:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--accent-color) !important;
+}
+
+/* For Firefox - remove blue outline */
+.laptop-finder select:-moz-focusring,
+.form-control:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #333;
+}
+
+/* Mobile-specific select improvements */
+@media (max-width: 767px) {
+    .laptop-finder select,
+    .finder-form select,
+    .form-control,
+    .budget-select {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+        padding: 14px 16px;
+        background-color: white;
+        border-radius: 12px;
+    }
+    
+    /* Remove default blue highlight on iOS tap */
+    select,
+    .form-control,
+    .budget-select {
+        -webkit-tap-highlight-color: transparent;
     }
 }

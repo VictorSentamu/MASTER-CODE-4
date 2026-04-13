@@ -3456,45 +3456,42 @@ function trackRecentlyViewedV2(productId) {
 // ============================================
 // SIMPLE SERVICES CAROUSEL
 // ============================================
-
+// Enhanced SimpleServicesCarousel with improved auto-swiping
 class SimpleServicesCarousel {
     constructor() {
         this.track = document.getElementById('servicesTrack');
         this.pagination = document.getElementById('servicesPagination');
         this.prevBtn = document.getElementById('servicesPrev');
         this.nextBtn = document.getElementById('servicesNext');
-        this.controls = document.querySelector('.services-carousel-controls');
         
         this.cards = [];
         this.currentSlide = 0;
         this.isAnimating = false;
         this.autoScrollInterval = null;
         this.isMobile = window.innerWidth <= 767;
+        this.touchStartX = 0;
+        this.touchEndX = 0;
         
         this.init();
     }
     
     init() {
         if (!this.track) return;
-        
         this.cards = Array.from(this.track.querySelectorAll('.service-card'));
-        
         if (this.cards.length === 0) return;
         
-        // Setup for all screen sizes
         this.setupPagination();
         this.setupEventListeners();
         this.startAutoScroll();
         this.updateUI();
         
-        // Handle window resize
         window.addEventListener('resize', () => this.handleResize());
     }
     
     getCardsPerView() {
-        if (window.innerWidth <= 767) return 1; // Mobile: 1 card at a time
-        if (window.innerWidth <= 992) return 2; // Tablet: 2 cards
-        return 3; // Desktop: 3 cards
+        if (window.innerWidth <= 767) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 3;
     }
     
     getTotalSlides() {
@@ -3504,18 +3501,15 @@ class SimpleServicesCarousel {
     
     setupPagination() {
         if (!this.pagination) return;
-        
         this.pagination.innerHTML = '';
         const totalSlides = this.getTotalSlides();
         
         if (window.innerWidth <= 767) {
-            // Mobile: One dot per CARD (since 1 card per view)
             this.pagination.classList.add('mobile-layout');
             for (let i = 0; i < this.cards.length; i++) {
                 this.pagination.appendChild(this.createDot(i, `Card ${i + 1}`));
             }
         } else {
-            // Desktop/Tablet: One dot per SLIDE (group of cards)
             this.pagination.classList.remove('mobile-layout');
             for (let i = 0; i < totalSlides; i++) {
                 this.pagination.appendChild(this.createDot(i, `Slide ${i + 1}`));
@@ -3528,229 +3522,151 @@ class SimpleServicesCarousel {
         dot.className = 'services-dot';
         dot.setAttribute('data-index', index);
         dot.setAttribute('aria-label', label);
-        
         dot.addEventListener('click', () => {
-            if (!this.isAnimating) {
-                this.goToSlide(index);
-            }
+            if (!this.isAnimating) this.goToSlide(index);
         });
-        
         return dot;
     }
     
     setupEventListeners() {
-        if (this.prevBtn) {
-            this.prevBtn.addEventListener('click', () => this.prev());
-        }
+        if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prev());
+        if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.next());
         
-        if (this.nextBtn) {
-            this.nextBtn.addEventListener('click', () => this.next());
-        }
-        
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') this.prev();
             if (e.key === 'ArrowRight') this.next();
         });
         
-        // Touch/swipe for mobile and tablet
-        this.setupTouchEvents();
+        // Enhanced touch/swipe for mobile
+        this.setupEnhancedTouchEvents();
         
-        // Pause on hover (desktop only)
-        if (this.track && window.innerWidth > 767) {
+        // Pause auto-scroll on hover/touch
+        if (this.track) {
             this.track.addEventListener('mouseenter', () => this.pauseAutoScroll());
             this.track.addEventListener('mouseleave', () => this.resumeAutoScroll());
-        }
-        
-        // Pause on touch for mobile
-        if (this.track && window.innerWidth <= 767) {
             this.track.addEventListener('touchstart', () => this.pauseAutoScroll());
             this.track.addEventListener('touchend', () => {
-                setTimeout(() => this.resumeAutoScroll(), 3000);
+                setTimeout(() => this.resumeAutoScroll(), 5000);
             });
         }
     }
     
-    setupTouchEvents() {
+    setupEnhancedTouchEvents() {
         if (!this.track) return;
         
-        let touchStartX = 0;
-        let touchEndX = 0;
-        const threshold = 30; // Lower threshold for mobile
+        const threshold = 30;
+        let isDragging = false;
         
         this.track.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
+            this.touchStartX = e.changedTouches[0].screenX;
+            isDragging = false;
             this.pauseAutoScroll();
         }, { passive: true });
         
+        this.track.addEventListener('touchmove', (e) => {
+            const currentX = e.changedTouches[0].screenX;
+            const diff = Math.abs(currentX - this.touchStartX);
+            if (diff > 10) isDragging = true;
+        }, { passive: true });
+        
         this.track.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            const diffX = touchStartX - touchEndX;
+            this.touchEndX = e.changedTouches[0].screenX;
+            const diffX = this.touchStartX - this.touchEndX;
             
-            if (Math.abs(diffX) > threshold) {
-                if (diffX > 0) {
-                    this.next(); // Swipe left
-                } else {
-                    this.prev(); // Swipe right
-                }
+            if (isDragging && Math.abs(diffX) > threshold) {
+                if (diffX > 0) this.next();
+                else this.prev();
             }
             
-            setTimeout(() => this.resumeAutoScroll(), 3000);
+            setTimeout(() => this.resumeAutoScroll(), 5000);
         }, { passive: true });
     }
     
     next() {
         if (this.isAnimating) return;
-        
         const totalSlides = this.getTotalSlides();
         
         if (this.currentSlide < totalSlides - 1) {
             this.currentSlide++;
             this.updatePosition();
         } else {
-            this.bounceBack();
+            this.currentSlide = 0;
+            this.updatePosition();
         }
     }
     
     prev() {
         if (this.isAnimating) return;
-        
         if (this.currentSlide > 0) {
             this.currentSlide--;
             this.updatePosition();
         } else {
-            this.bounceBack();
+            this.currentSlide = this.getTotalSlides() - 1;
+            this.updatePosition();
         }
     }
     
     goToSlide(index) {
         if (this.isAnimating || index === this.currentSlide) return;
-        
         this.currentSlide = index;
         this.updatePosition();
     }
     
     updatePosition() {
         if (this.isAnimating || !this.track) return;
-        
         this.isAnimating = true;
         
-        // Calculate offset based on screen size
         const cardsPerView = this.getCardsPerView();
         let offset;
         
         if (window.innerWidth <= 767) {
-            // Mobile: Each card takes 85% width, so offset is currentSlide * 85%
             offset = -this.currentSlide * 85;
-        } else if (window.innerWidth <= 992) {
-            // Tablet: 2 cards per view
-            offset = -this.currentSlide * 100;
+            this.cards.forEach((card, index) => {
+                card.classList.toggle('active', index === this.currentSlide);
+            });
         } else {
-            // Desktop: 3 cards per view
             offset = -this.currentSlide * 100;
         }
         
         this.track.style.transform = `translateX(${offset}%)`;
-        
-        // Mobile: Highlight active card
-        if (window.innerWidth <= 767) {
-            this.cards.forEach((card, index) => {
-                card.classList.toggle('active', index === this.currentSlide);
-            });
-        }
-        
         this.updateUI();
         
-        setTimeout(() => {
-            this.isAnimating = false;
-        }, 600);
-    }
-    
-    bounceBack() {
-        if (this.isAnimating || !this.track) return;
-        
-        this.isAnimating = true;
-        this.track.classList.add('bouncing');
-        
-        // Calculate current offset
-        const cardsPerView = this.getCardsPerView();
-        let currentOffset;
-        
-        if (window.innerWidth <= 767) {
-            currentOffset = -this.currentSlide * 85;
-        } else {
-            currentOffset = -this.currentSlide * 100;
-        }
-        
-        // Apply bounce
-        const bounceDistance = this.currentSlide === 0 ? 10 : -10;
-        this.track.style.transition = 'transform 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
-        this.track.style.transform = `translateX(${currentOffset + bounceDistance}%)`;
-        
-        setTimeout(() => {
-            this.track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-            this.track.style.transform = `translateX(${currentOffset}%)`;
-            
-            setTimeout(() => {
-                this.track.classList.remove('bouncing');
-                this.isAnimating = false;
-            }, 200);
-        }, 200);
+        setTimeout(() => { this.isAnimating = false; }, 600);
     }
     
     updateUI() {
-        // Update pagination dots
         const dots = this.pagination.querySelectorAll('.services-dot');
-        
-        if (window.innerWidth <= 767) {
-            // Mobile: Highlight current CARD (since 1 card per view)
-            dots.forEach((dot, index) => {
-                const isActive = index === this.currentSlide;
-                dot.classList.toggle('active', isActive);
-                dot.setAttribute('aria-selected', isActive);
-            });
-        } else {
-            // Desktop/Tablet: Highlight current SLIDE
-            dots.forEach((dot, index) => {
-                const isActive = index === this.currentSlide;
-                dot.classList.toggle('active', isActive);
-                dot.setAttribute('aria-selected', isActive);
-            });
-        }
-        
-        // Update arrow states
         const totalSlides = this.getTotalSlides();
         
-        if (this.prevBtn) {
-            const isDisabled = this.currentSlide <= 0;
-            this.prevBtn.disabled = isDisabled;
-            this.prevBtn.style.opacity = isDisabled ? '0.5' : '1';
-            this.prevBtn.style.cursor = isDisabled ? 'not-allowed' : 'pointer';
+        if (window.innerWidth <= 767) {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === this.currentSlide);
+            });
+        } else {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === this.currentSlide);
+            });
         }
         
+        if (this.prevBtn) {
+            this.prevBtn.disabled = false;
+            this.prevBtn.style.opacity = '1';
+        }
         if (this.nextBtn) {
-            const isDisabled = this.currentSlide >= totalSlides - 1;
-            this.nextBtn.disabled = isDisabled;
-            this.nextBtn.style.opacity = isDisabled ? '0.5' : '1';
-            this.nextBtn.style.cursor = isDisabled ? 'not-allowed' : 'pointer';
+            this.nextBtn.disabled = false;
+            this.nextBtn.style.opacity = '1';
         }
     }
     
     startAutoScroll() {
-        if (this.autoScrollInterval) {
-            clearInterval(this.autoScrollInterval);
-        }
+        if (this.autoScrollInterval) clearInterval(this.autoScrollInterval);
         
+        // Faster auto-swiping for better UX
         this.autoScrollInterval = setInterval(() => {
-            const totalSlides = this.getTotalSlides();
-            
-            if (this.currentSlide < totalSlides - 1) {
+            if (!this.isAnimating && !this.isDragging) {
                 this.next();
-            } else {
-                this.currentSlide = 0;
-                this.updatePosition();
             }
-        }, 8000);
+        }, 6000); // 6 seconds - smooth and not too fast
     }
     
     pauseAutoScroll() {
@@ -3761,20 +3677,13 @@ class SimpleServicesCarousel {
     }
     
     resumeAutoScroll() {
-        if (!this.autoScrollInterval) {
-            this.startAutoScroll();
-        }
+        if (!this.autoScrollInterval) this.startAutoScroll();
     }
     
     handleResize() {
-        // Re-setup pagination for new layout
         this.setupPagination();
-        
-        // Reset position
         this.currentSlide = 0;
         this.updatePosition();
-        
-        // Update UI
         this.updateUI();
     }
 }
